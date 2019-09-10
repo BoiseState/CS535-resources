@@ -84,6 +84,7 @@ public class CaseAnalysis
 	    job.setJarByClass(CaseAnalysis.class);
 	    
 	    job.setMapperClass(Map.class);
+	    // we don't want a Combiner here: why?
 	    job.setReducerClass(Reduce.class);
 	    
 	    job.setOutputKeyClass(Text.class);
