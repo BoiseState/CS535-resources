@@ -55,13 +55,13 @@ public class TopMoviesMapper extends Mapper<Object,
                                        InterruptedException 
     { 
         for (Map.Entry<Long, List<String>> entry : tmap.entrySet())  
-        { 
-            long count = entry.getKey(); 
-            List<String> name = entry.getValue(); 
-  
-	    for (String s : name) {
-		context.write(new Text(s), new LongWritable(count));
-	    }
-        } 
+		{
+			long count = entry.getKey();
+			List<String> name = entry.getValue();
+
+			for (String s : name) {
+				context.write(new Text(s), new LongWritable(count));
+			}
+		}
     } 
 } 
