@@ -59,14 +59,12 @@ public class TopMoviesReducer extends Reducer<Text,
     public void cleanup(Context context) throws IOException, 
                                        InterruptedException 
     { 
-        for (Map.Entry<Long, List<String>> entry : tmap2.entrySet())  
-        { 
-            long count = entry.getKey(); 
-            List<String> name = entry.getValue(); 
-            for (String s : name) {
-		context.write(new LongWritable(count), new Text(s)); 
-	    }
-            
-        } 
+		for (Map.Entry<Long, List<String>> entry : tmap2.entrySet()) {
+			long count = entry.getKey();
+			List<String> name = entry.getValue();
+			for (String s : name) {
+				context.write(new LongWritable(count), new Text(s));
+			}
+		}
     } 
 } 
