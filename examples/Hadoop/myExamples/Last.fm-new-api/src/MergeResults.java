@@ -26,50 +26,44 @@ import org.apache.hadoop.util.Tool;
  * 
  */
 
-public class MergeResults extends Configured implements Tool 
+public class MergeResults extends Configured implements Tool
 {
 
-	public static class MergeListenersMapper extends 
-			Mapper<IntWritable, IntWritable, IntWritable, TrackStats> {
+    public static class MergeListenersMapper extends Mapper<IntWritable, IntWritable, IntWritable, TrackStats>
+    {
 
-
-		public void map(IntWritable trackId, IntWritable uniqueListenerCount, Context context) 
-			throws IOException, InterruptedException 
-		{
-			TrackStats trackStats = new TrackStats();
-			trackStats.setListeners(uniqueListenerCount.get());
-			context.write(trackId, trackStats);
-		}
+	public void map(IntWritable trackId, IntWritable uniqueListenerCount, Context context)
+	        throws IOException, InterruptedException {
+	    TrackStats trackStats = new TrackStats();
+	    trackStats.setListeners(uniqueListenerCount.get());
+	    context.write(trackId, trackStats);
 	}
+    }
 
-	
-	public int run(String[] args) throws Exception {
-		
-		Configuration conf = new Configuration();
 
-		Path sumInputDir = new Path(args[1] + Path.SEPARATOR_CHAR
-				+ "sumInputDir");
-		Path listenersInputDir = new Path(args[1] + Path.SEPARATOR_CHAR
-				+ "listenersInputDir");
-		Path output = new Path(args[1] + Path.SEPARATOR_CHAR + "finalSumOutput");
+    public int run(String[] args) throws Exception {
 
-		Job job = new Job(conf, "merge-results");
-		job.setJarByClass(UniqueListeners.class);
-		
+	Configuration conf = new Configuration();
 
-		MultipleInputs.addInputPath(job, sumInputDir,
-				SequenceFileInputFormat.class, Mapper.class);
-		MultipleInputs.addInputPath(job, listenersInputDir,
-				SequenceFileInputFormat.class, MergeListenersMapper.class);
+	Path sumInputDir = new Path(args[1] + Path.SEPARATOR_CHAR + "sumInputDir");
+	Path listenersInputDir = new Path(args[1] + Path.SEPARATOR_CHAR + "listenersInputDir");
+	Path output = new Path(args[1] + Path.SEPARATOR_CHAR + "finalSumOutput");
 
-		job.setReducerClass(SumTrackStats.SumTrackStatsReducer.class);
-		job.setOutputKeyClass(IntWritable.class);
-		job.setOutputValueClass(TrackStats.class);
+	@SuppressWarnings("deprecation")
+	Job job = new Job(conf, "merge-results");
+	job.setJarByClass(UniqueListeners.class);
 
-		FileOutputFormat.setOutputPath(job, output);
-		if (job.waitForCompletion(true))
-			return 0;
-		else
-			return 1;
-	}
+	MultipleInputs.addInputPath(job, sumInputDir, SequenceFileInputFormat.class, Mapper.class);
+	MultipleInputs.addInputPath(job, listenersInputDir, SequenceFileInputFormat.class, MergeListenersMapper.class);
+
+	job.setReducerClass(SumTrackStats.SumTrackStatsReducer.class);
+	job.setOutputKeyClass(IntWritable.class);
+	job.setOutputValueClass(TrackStats.class);
+
+	FileOutputFormat.setOutputPath(job, output);
+	if (job.waitForCompletion(true))
+	    return 0;
+	else
+	    return 1;
+    }
 }
