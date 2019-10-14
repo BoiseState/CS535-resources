@@ -1,1 +1,5 @@
 examples/Hadoop/myExamples/tf-idf/.classpath
+examples/Spark/simpleapp/.classpath
+examples/Spark/simpleapp/.gitignore
+examples/Spark/simpleapp/.project
+examples/Spark/simpleapp/.settings/
