@@ -3,3 +3,5 @@ examples/Spark/simpleapp/.classpath
 examples/Spark/simpleapp/.gitignore
 examples/Spark/simpleapp/.project
 examples/Spark/simpleapp/.settings/
+examples/Lambdas/.classpath
+examples/Lambdas/.project
