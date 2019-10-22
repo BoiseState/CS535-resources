@@ -1,8 +1,6 @@
-import org.apache.spark.sql.SparkSession;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.Dataset;
 
 public class SimpleApp {
   public static void main(String[] args) {
@@ -29,5 +27,6 @@ public class SimpleApp {
 
 
     sc.stop(); // stop the Spark context
+    sc.close();
   }
 }
