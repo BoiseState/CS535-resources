@@ -2,13 +2,18 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
+
 public class SimpleApp {
   public static void main(String[] args) {
-    SparkConf conf = new SparkConf().setAppName("SimpleApp").setMaster("local");
+    SparkConf conf = new SparkConf().setAppName("SimpleApp");
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     String logFile = "/home/amit/spark-install/spark/README.md"; //Update to your file path 
     JavaRDD<String> logData = sc.textFile(logFile);
+    
+    System.out.println("#partitions " + logData.getNumPartitions());
+    System.out.println("#partitions " + logData.getStorageLevel());
+
 
     long numAs = logData.filter(s -> s.contains("a")).count();
     long numBs = logData.filter(s -> s.contains("b")).count();
@@ -19,6 +24,9 @@ public class SimpleApp {
 
     
     JavaRDD<Integer> lineLengths = logData.map(s -> s.length());
+    System.out.println("#partitions " + lineLengths.getNumPartitions());
+    System.out.println("#partitions " + lineLengths.getStorageLevel());
+
     int totalLength = lineLengths.reduce((a, b) -> a + b);
     
     System.out.println();
