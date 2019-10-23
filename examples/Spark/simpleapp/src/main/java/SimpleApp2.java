@@ -1,6 +1,7 @@
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.storage.StorageLevel;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -32,6 +33,9 @@ public class SimpleApp2 {
     JavaRDD<Integer> lineLengths = logData.map(s -> s.length());
     System.out.println("#partitions " + lineLengths.getNumPartitions());
     System.out.println("#storage level " + lineLengths.getStorageLevel());
+    lineLengths.persist(StorageLevel.MEMORY_ONLY());
+    System.out.println("#updated storage level " + lineLengths.getStorageLevel());
+
 
     int totalLength = lineLengths.reduce((a, b) -> a + b);
     
