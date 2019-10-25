@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path=""/>
 	<classpathentry kind="lib" path="/home/amit/spark-install/spark-2.4.4-bin-hadoop2.7/jars/activation-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/home/amit/spark-install/spark-2.4.4-bin-hadoop2.7/jars/aircompressor-0.10.jar"/>
 	<classpathentry kind="lib" path="/home/amit/spark-install/spark-2.4.4-bin-hadoop2.7/jars/antlr4-runtime-4.7.jar"/>
