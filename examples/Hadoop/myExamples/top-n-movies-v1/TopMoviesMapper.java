@@ -38,7 +38,7 @@ public class TopMoviesMapper extends Mapper<Object,
         tmap.put(no_of_views, movie_name); 
   
         // we remove the first key-value 
-        // if it's size increases 10 
+        // if it's size increases more than 10 
         if (tmap.size() > 10) 
         { 
             tmap.remove(tmap.firstKey()); 

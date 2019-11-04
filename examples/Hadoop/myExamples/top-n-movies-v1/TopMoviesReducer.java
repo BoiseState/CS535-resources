@@ -41,7 +41,7 @@ public class TopMoviesReducer extends Reducer<Text,
         tmap2.put(count, name); 
   
         // we remove the first key-value 
-        // if it's size increases 10 
+        // if it's size increases to more than 10 
         if (tmap2.size() > 10) 
         { 
             tmap2.remove(tmap2.firstKey()); 
