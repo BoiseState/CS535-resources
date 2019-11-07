@@ -5,3 +5,5 @@ examples/Spark/simpleapp/.project
 examples/Spark/simpleapp/.settings/
 examples/Lambdas/.classpath
 examples/Lambdas/.project
+examples/Spark/pagerank/.classpath
+examples/Spark/pagerank/.project
