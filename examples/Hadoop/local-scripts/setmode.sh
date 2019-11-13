@@ -50,6 +50,11 @@ then
 	cp yarn-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/yarn-site.xml
 	cp masters.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/masters
 	cp slaves.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/slaves
+	sed 's/YOURUSERNAME/'"$(whoami)"'/' ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml > temp.$$
+	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
+	sed 's/YOURUSERNAME/'"$(whoami)"'/' ${HADOOP_HOME}/etc/hadoop/mapred-site.xml > temp.$$
+	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
+
 	exit
 fi
 

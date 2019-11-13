@@ -125,7 +125,7 @@ public final class JavaPageRankVerbose
 		return results.iterator();
 	    });
 	    
-	    List<Tuple2<String, Double>> contribsOutput = ranks.collect();
+	    List<Tuple2<String, Double>> contribsOutput = contribs.collect();
 	    System.out.println();
 	    for (Tuple2<?, ?> tuple : contribsOutput) {
 		System.out.println(tuple._1() + " has new rank in iteration " + current + ": " + tuple._2());
