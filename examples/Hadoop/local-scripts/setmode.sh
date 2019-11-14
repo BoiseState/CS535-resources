@@ -43,7 +43,7 @@ fi
 
 if test "${1:0:1}" == "d"
 then
-	echo "Setting up config files for distributed mode."
+	echo "Setting up config files for distributed mode (assuming bugs as master node)."
 	cp core-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/core-site.xml
 	cp hdfs-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
 	cp mapred-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
