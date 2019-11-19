@@ -9,3 +9,5 @@ examples/Spark/pagerank/.classpath
 examples/Spark/pagerank/.project
 examples/Spark/top-n-patents/.classpath
 examples/Spark/top-n-patents/.project
+examples/Spark/correlation/.classpath
+examples/Spark/correlation/.project
