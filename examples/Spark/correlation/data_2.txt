@@ -1,4 +1,3 @@
 shoes purses bags shirts ties
-shoes purses
-shirts pants ties
+shoes purses shirts pants ties
 shoes socks bags
