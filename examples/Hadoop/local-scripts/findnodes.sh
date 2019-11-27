@@ -18,7 +18,7 @@ do
 	then
 		echo "$node" >> workers
 		num=$[num+1]
-		echo "Found $num good nodes so far"
+		echo "Found $num good nodes so far: $node"
 		if test "$num" = "$request"
 		then
 			echo "Done. Check node names in file named workers"
