@@ -12,3 +12,6 @@ examples/Spark/top-n-patents/.project
 examples/Spark/correlation/.classpath
 examples/Spark/correlation/.project
 examples/Spark/etext-all/
+examples/Spark/spark-sql-example/.classpath
+examples/Spark/spark-sql-example/.project
+examples/Spark/spark-sql-example/log
