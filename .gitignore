@@ -15,3 +15,5 @@ examples/Spark/etext-all/
 examples/Spark/spark-sql-example/.classpath
 examples/Spark/spark-sql-example/.project
 examples/Spark/spark-sql-example/log
+examples/Spark/spark-sql-example/metastore_db/
+examples/Spark/spark-sql-example/spark-warehouse
