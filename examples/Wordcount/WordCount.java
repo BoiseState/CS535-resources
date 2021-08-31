@@ -19,7 +19,7 @@ public class WordCount
 	 */
 	public WordCount(File inputFolder) 
 	{
-		for (File f : inputFolder.listFiles()) {
+		for (File f: inputFolder.listFiles()) {
 			System.err.println("Processing file: " + f);
 			processFile(f);
 		}
@@ -29,6 +29,7 @@ public class WordCount
 	 * Process the words in one file and add them to the dictionary (incrementing the count).
 	 * @param file
 	 */
+	@SuppressWarnings("deprecation")
 	private void processFile(File file) 
 	{
 		try {
@@ -64,5 +65,4 @@ public class WordCount
 		WordCount processor = new WordCount(inputFolder);
 		processor.printDictionary();
 	}
-
 }
