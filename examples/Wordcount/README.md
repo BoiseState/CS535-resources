@@ -2,6 +2,7 @@ Wordcount
 =========
 
 WordCount.java: Java solution for wordcount that uses a sequential approach with a dictionary
+based on a HashMap.
 
 wordcount.sh: A shell script solution for wordcount that uses a streaming approach.
 
