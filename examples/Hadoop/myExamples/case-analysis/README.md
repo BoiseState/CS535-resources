@@ -18,9 +18,9 @@ Create a normal Java project and add the following external jar files (adjusting
 paths):
 
 ```
-hadoop/hadoop-2.9.1/share/hadoop/common/hadoop-common-2.9.1.jar
-hadoop/hadoop-2.9.1/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.9.1.jar
-hadoop/hadoop-2.9.1/share/hadoop/hdfs/lib/commons-cli-1.2.jar
+hadoop/hadoop-2.10.1/share/hadoop/common/hadoop-common-2.10.1.jar
+hadoop/hadoop-2.10.1/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.10.1.jar
+hadoop/hadoop-2.10.1/share/hadoop/hdfs/lib/commons-cli-1.2.jar
 ```
 
 Then export project as jar file and you should be set.
