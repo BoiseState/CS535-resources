@@ -14,14 +14,14 @@ the following steps. See class notes for more details.
 
 ```
 hdfs  dfs -put ../input
-
-hadoop jar contrib/streaming/hadoop-*streaming*.jar \
--file mapper.py    -mapper mapper.py \
--file reducer.py   -reducer reducer.py \
--input input/* -output output
+ 
+hadoop jar ~/hadoop-install/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar -mapper mapper.py -reducer reducer.py -input input -output output -file ./mapper.py -file ./reducer.py
 
 hdfs dfs -get output
 ```
+
+
+
 
 
 
