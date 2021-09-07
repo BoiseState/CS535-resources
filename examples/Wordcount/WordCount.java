@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 /**
  * A solution to the word count problem using sequential techniques.
- * 
  * @author amit
- *
  */
 public class WordCount
 {
@@ -16,9 +14,7 @@ public class WordCount
 
     /**
      * Constructor: Process all files in the given folder into a dictionary.
-     * 
-     * @param inputFolder
-     *                        the folder containing the text files
+     * @param inputFolder   the folder containing the text files
      */
     public WordCount(File inputFolder) {
 	for (File f : inputFolder.listFiles()) {
