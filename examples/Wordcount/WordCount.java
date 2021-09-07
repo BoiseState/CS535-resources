@@ -70,14 +70,8 @@ public class WordCount
 	}
 	String input = args[0];
 
-	long time = System.currentTimeMillis();
-
 	File inputFolder = new File(input);
 	WordCount processor = new WordCount(inputFolder);
 	processor.printDictionary();
-
-	time = System.currentTimeMillis() - time;
-
-	System.err.println("Runtime: " + time);
     }
 }
