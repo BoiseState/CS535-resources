@@ -10,13 +10,15 @@ public class Reducer {
 		while (stdin.hasNextLine()){
 			String line = stdin.nextLine().trim();
 			String[] field = line.split("\t",0);
-			if (field[0].compareTo(currentWord) == 0) 
-				count += Integer.parseInt(field[1]);
-			else {
-				if (count > 0) System.out.println(currentWord + "\t" + count);
-				count = Integer.parseInt(field[1]);
-				currentWord = field[0];
-			}	
+			if (field.length > 1) {
+				if (field[0].compareTo(currentWord) == 0) 
+					count += Integer.parseInt(field[1]);
+				else {
+					if (count > 0) System.out.println(currentWord + "\t" + count);
+					count = Integer.parseInt(field[1]);
+					currentWord = field[0];
+				}	
+			}
 		}
 		stdin.close();
 		System.out.println(currentWord + "\t" + count);
