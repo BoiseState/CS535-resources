@@ -31,7 +31,7 @@ public class TfIdfDriver
 				.getRemainingArgs();
 
 		if (otherArgs.length != 2) {
-			System.err.println("Usage: inverted-index <input> <output>");
+			System.err.println("Usage: TfIdfDriver <input> <output>");
 			System.exit(2);
 		}
 
