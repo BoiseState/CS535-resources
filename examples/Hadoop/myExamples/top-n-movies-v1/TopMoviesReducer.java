@@ -10,13 +10,13 @@ import org.apache.hadoop.mapreduce.Reducer;
 public class TopMoviesReducer extends Reducer<Text, 
                      LongWritable, LongWritable, Text> { 
   
-    private TreeMap<Long, String> tmap2; 
+    private TreeMap<Long, String> tmap; 
   
     @Override
     public void setup(Context context) throws IOException, 
                                      InterruptedException 
     { 
-        tmap2 = new TreeMap<Long, String>(); 
+        tmap = new TreeMap<Long, String>(); 
     } 
   
     @Override
@@ -38,13 +38,13 @@ public class TopMoviesReducer extends Reducer<Text,
         // insert data into treeMap, 
         // we want top 10 viewed movies 
         // so we pass count as key 
-        tmap2.put(count, name); 
+        tmap.put(count, name); 
   
         // we remove the first key-value 
         // if it's size increases to more than 10 
-        if (tmap2.size() > 10) 
+        if (tmap.size() > 10) 
         { 
-            tmap2.remove(tmap2.firstKey()); 
+            tmap.remove(tmap.firstKey()); 
         } 
     } 
   
@@ -53,7 +53,7 @@ public class TopMoviesReducer extends Reducer<Text,
                                        InterruptedException 
     { 
   
-        for (Map.Entry<Long, String> entry : tmap2.entrySet())  
+        for (Map.Entry<Long, String> entry : tmap.entrySet())  
         { 
   
             long count = entry.getKey(); 

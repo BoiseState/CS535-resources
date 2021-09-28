@@ -19,4 +19,5 @@ examples/Spark/spark-sql-example/metastore_db/
 examples/Spark/spark-sql-example/spark-warehouse
 examples/Spark/ml/.classpath
 examples/Spark/ml/.project
-
+examples/Hadoop/myExamples/inverted-index/.settings/
+examples/Hadoop/myExamples/top-n-movies-v1/.settings/
