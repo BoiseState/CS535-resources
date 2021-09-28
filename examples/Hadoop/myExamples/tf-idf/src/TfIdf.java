@@ -29,7 +29,8 @@ public class TfIdf {
 			long totalDocCount = context.getConfiguration().getLong("docCount", 0);
 
 			double tf = ((double) Integer.parseInt(docCount_docId_countInDoc[2]) / totalTermCount);
-			double idf = Math.log((double) totalDocCount / (double) Integer.parseInt(docCount_docId_countInDoc[0]));
+			double idf = Math.log((double) totalDocCount / 
+				(1 + (double) Integer.parseInt(docCount_docId_countInDoc[0])));
 			double tfidf = tf * idf;
 
 			context.write(new Text(docCount_docId_countInDoc[1] + "_" + key), new DoubleWritable(tfidf));
