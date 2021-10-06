@@ -42,9 +42,11 @@ public class TfIdfDriver
 
 		Job jobTF = new Job(conf, "TF");
 		jobTF.setJarByClass(TermFrequency.class);
+		
 		jobTF.setMapperClass(TermFrequency.TermFrequencyMapper.class);
 		jobTF.setCombinerClass(TermFrequency.TermFrequencyReducer.class);
 		jobTF.setReducerClass(TermFrequency.TermFrequencyReducer.class);
+		
 		jobTF.setOutputFormatClass(TextOutputFormat.class);
 		jobTF.setOutputKeyClass(Text.class);
 		jobTF.setOutputValueClass(IntWritable.class);
@@ -53,22 +55,28 @@ public class TfIdfDriver
 
 		Job jobIDF = new Job(conf, "IDF");
 		jobIDF.setJarByClass(InverseDocumentFrequency.class);
+		
 		jobIDF.setMapperClass(InverseDocumentFrequency.InverseDocumentFrequencyMapper.class);
 		jobIDF.setReducerClass(InverseDocumentFrequency.InverseDocumentFrequencyReducer.class);
+		
 		jobIDF.setInputFormatClass(KeyValueTextIntInputFormat.class);
 		jobIDF.setOutputKeyClass(Text.class);
 		jobIDF.setOutputValueClass(Text.class);
+		
 		FileInputFormat.addInputPath(jobIDF, new Path(tfOutput));
 		FileOutputFormat.setOutputPath(jobIDF, new Path(idfOutput));
 
 		Job jobTfIdf = new Job(conf, "TF-IDF");
 		jobTfIdf.setJarByClass(TfIdf.class);
+		
 		jobTfIdf.setMapperClass(TfIdf.TfIdfMapper.class);
 		jobTfIdf.setCombinerClass(TfIdf.TfIdfReducer.class);
 		jobTfIdf.setReducerClass(TfIdf.TfIdfReducer.class);
+		
 		jobTfIdf.setInputFormatClass(KeyValueTextTextInputFormat.class);
 		jobTfIdf.setOutputKeyClass(Text.class);
 		jobTfIdf.setOutputValueClass(DoubleWritable.class);
+		
 		FileInputFormat.addInputPath(jobTfIdf, new Path(idfOutput));
 		FileOutputFormat.setOutputPath(jobTfIdf, new Path(output));
 
