@@ -22,3 +22,4 @@ examples/Spark/ml/.project
 examples/Hadoop/myExamples/inverted-index/.settings/
 examples/Hadoop/myExamples/top-n-movies-v1/.settings/
 examples/Hadoop/myExamples/tf-idf/output/
+examples/Hadoop/myExamples/word-count/output/
