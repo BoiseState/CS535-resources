@@ -18,7 +18,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 public class TermFrequency {
 	
 	protected static boolean caseSensitive = false;
-	protected static String delimeters = " , .;:'\"&!?-_\n\t12345678910[]{}<>\\`~|=^()@#$%^*/+-";
+	protected static String delimiters = " , .;:'\"&!?-_\n\t12345678910[]{}<>\\`~|=^()@#$%^*/+-";
 
 	public static class TermFrequencyMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
@@ -36,7 +36,7 @@ public class TermFrequency {
 
 			String line = (caseSensitive) ? value.toString() : value.toString().toLowerCase();
 			
-			StringTokenizer tokenizer = new StringTokenizer(line, delimeters);
+			StringTokenizer tokenizer = new StringTokenizer(line, delimiters);
 
 			/* Map each term and documentID to a value of 1 */
 			while (tokenizer.hasMoreTokens()) {
