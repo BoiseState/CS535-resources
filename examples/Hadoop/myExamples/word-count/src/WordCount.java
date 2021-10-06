@@ -46,6 +46,7 @@ public class WordCount
 	    for (IntWritable val : values) {
 		sum += val.get();
 	    }
+		System.out.println("From the dungeons of Hadoop! " + key);
 	    result.set(sum);
 	    context.write(key, result);
 	}

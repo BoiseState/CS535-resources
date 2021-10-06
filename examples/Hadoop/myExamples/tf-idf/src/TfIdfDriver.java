@@ -31,7 +31,7 @@ public class TfIdfDriver
 				.getRemainingArgs();
 
 		if (otherArgs.length != 2) {
-			System.err.println("Usage: inverted-index <input> <output>");
+			System.err.println("Usage: TfIdfDriver <input> <output>");
 			System.exit(2);
 		}
 
@@ -50,8 +50,10 @@ public class TfIdfDriver
 		jobTF.setOutputFormatClass(TextOutputFormat.class);
 		jobTF.setOutputKeyClass(Text.class);
 		jobTF.setOutputValueClass(IntWritable.class);
+		
 		FileInputFormat.addInputPath(jobTF, new Path(input));
 		FileOutputFormat.setOutputPath(jobTF, new Path(tfOutput));
+		
 
 		Job jobIDF = new Job(conf, "IDF");
 		jobIDF.setJarByClass(InverseDocumentFrequency.class);
@@ -79,6 +81,7 @@ public class TfIdfDriver
 		
 		FileInputFormat.addInputPath(jobTfIdf, new Path(idfOutput));
 		FileOutputFormat.setOutputPath(jobTfIdf, new Path(output));
+		
 
 		if (jobTF.waitForCompletion(true)) {
 			long totalTermCount = jobTF.getCounters()
