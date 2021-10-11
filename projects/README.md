@@ -20,22 +20,31 @@ Tell us about it. What did you enjoy, what was less desirable? Feel
 free to add other items (within the two paragraph limit).
 
 ## Compiling and Using
+### Prerequisets
+You must have hadoop and Java8 installed on your system
 
-Instruct the user how build, package and use your code. Does your
-program require user input? If so, what does your user need to know
-about it to use it as quickly as possible?
-
+### Running the Code
+importing input files
+```
+hdfs dfs -put <input files> input
+```
+running hadoop
+```
+hadoop jar inverted-index.jar input output
+```
+getting results
+```
+hdfs dfs -get output <output location>
+```
 ## Results 
+Local Machine :  **0m11sec**
 
-This section presents timing and other results of the experiments that 
-you were asked to perform as part of the project.
+cscluster00 :    **6m21s**
 
 ## Sources used
 
-If you used any sources outside of the lecture notes, class lab files,
-or text book you need to list them here. 
+The only bug that I used outside sources to solve was a the error "Compararator Violated the General Contract" and "Out of Memory Error"
 
-----------
-This README template is using Markdown. Here is a quick cheat sheet on Markdown tags:
-[https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/).
-To preview your README.md output, you can view it on GitHub or in eclipse.
+To solve this I had to adjusted my comparator to using Intiger.compare() and changed to legacy mergeSort. Sources are found below.
+https://stackoverflow.com/questions/11441666/java-error-comparison-method-violates-its-general-contract
+https://www.baeldung.com/java-comparator-comparable
