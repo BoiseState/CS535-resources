@@ -9,7 +9,7 @@ public class SimpleApp {
     SparkConf conf = new SparkConf().setAppName("SimpleApp");
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    String logFile = "/home/amit/spark-install/spark/README.md"; //Update to your file path 
+    String logFile = "./README.md";  
     JavaRDD<String> logData = sc.textFile(logFile);
 
     long numAs = logData.filter(s -> s.contains("a")).count();

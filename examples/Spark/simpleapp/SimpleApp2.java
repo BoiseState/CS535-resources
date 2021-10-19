@@ -15,7 +15,7 @@ public class SimpleApp2 {
     SparkConf conf = new SparkConf().setAppName("SimpleApp");
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    String logFile = "/home/amit/spark-install/spark/README.md"; //Update to your file path 
+    String logFile = "./README.md";  
     JavaRDD<String> logData = sc.textFile(logFile);
     
     System.out.println("#partitions " + logData.getNumPartitions());
@@ -42,7 +42,6 @@ public class SimpleApp2 {
     System.out.println();
     System.out.println("Total linelengths = " + totalLength);
     System.out.println();
-
 
     sc.stop(); // stop the Spark context
     sc.close();
