@@ -43,7 +43,8 @@ fi
 
 if test "${1:0:1}" == "d"
 then
-	echo "Setting up config files for distributed mode (assuming bugs as master node)."
+	master=$(hostname)
+	echo "Setting up config files for distributed mode (assuming $master as master node)."
 	echo "Make sure to update the etc/hadoop/slaves files in the hadoop install folder with your nodes"
 	cp core-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/core-site.xml
 	cp hdfs-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
@@ -51,11 +52,20 @@ then
 	cp yarn-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/yarn-site.xml
 	cp masters.distributed ${HADOOP_HOME}/etc/hadoop/masters
 	cp slaves.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/slaves
+	#
 	sed 's/YOURUSERNAME/'"$(whoami)"'/' ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml > temp.$$
 	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
+	#
 	sed 's/YOURUSERNAME/'"$(whoami)"'/' ${HADOOP_HOME}/etc/hadoop/mapred-site.xml > temp.$$
 	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
-
+	#
+	sed 's/MASTERNODE/'$master'/' ${HADOOP_HOME}/etc/hadoop/core-site.xml > temp.$$
+	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/core-site.xml
+	#
+	sed 's/MASTERNODE/'$master'/' ${HADOOP_HOME}/etc/hadoop/yarn-site.xml > temp.$$
+	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/yarn-site.xml
+	#
+	echo $master > ${HADOOP_HOME}/etc/hadoop/masters
 	exit
 fi
 

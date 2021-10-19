@@ -23,7 +23,7 @@
 
  <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>cscluster00.boisestate.edu</value>
+    <value>MASTERNODE</value>
  </property>
 
  <property>
