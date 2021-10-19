@@ -18,7 +18,6 @@ public class SimpleApp {
     System.out.println();
     System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
     System.out.println();
-
     
     JavaRDD<Integer> lineLengths = logData.map(s -> s.length());
     int totalLength = lineLengths.reduce((a, b) -> a + b);

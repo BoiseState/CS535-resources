@@ -1,7 +1,8 @@
 """SimpleApp.py"""
 from pyspark.sql import SparkSession
 
-logFile = "./README.md"  # Should be some file on your system
+#Use same file as for the Java program to verify results
+logFile = "../simpleapp/README.md"  # Should be some file on your system
 spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
 logData = spark.read.text(logFile).cache()
 

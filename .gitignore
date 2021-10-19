@@ -2,6 +2,7 @@ examples/Hadoop/myExamples/tf-idf/.classpath
 examples/Spark/simpleapp/.classpath
 examples/Spark/simpleapp/.project
 examples/Spark/simpleapp/.settings/
+examples/Spark/simpleapp-python/log
 examples/Lambdas/.classpath
 examples/Lambdas/.project
 examples/Spark/pagerank/.classpath
