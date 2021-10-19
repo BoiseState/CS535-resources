@@ -1,8 +1,12 @@
 
 
-import java.io.*; 
-import java.util.*; 
-import org.apache.hadoop.io.Text; 
+
+import org.apache.hadoop.io.Text;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.apache.hadoop.io.LongWritable; 
 import org.apache.hadoop.mapreduce.Mapper; 
   
