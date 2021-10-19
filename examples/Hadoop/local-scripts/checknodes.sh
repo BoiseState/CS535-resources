@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo
+echo "=== checknodes.sh: workers file from the folder $(pwd) ==="
+echo
+
 for host in $(cat workers)
 do
 	echo "=== Checking node $host for already running Hadoop ==="
