@@ -77,7 +77,8 @@ public class InvertedIndex
 					.println("Usage: InvertedIndex <input path> <output path>");
 			System.exit(1);
 		}
-		Job job = new Job(conf, "InvertedIndex");
+		Job job = Job.getInstance(conf, "InvertedIndex");
+		job.setNumReduceTasks(8);
 		job.setJarByClass(InvertedIndex.class);
 		job.setMapperClass(InvertedIndexMapper.class);
 		job.setReducerClass(InvertedIndexReducer.class);

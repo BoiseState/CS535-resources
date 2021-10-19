@@ -40,7 +40,7 @@ public class TfIdfDriver
 		String idfOutput = otherArgs[1] + Path.SEPARATOR_CHAR + "idfOutput";
 		String output = otherArgs[1] + Path.SEPARATOR_CHAR + "finalOutput";
 
-		Job jobTF = new Job(conf, "TF");
+		Job jobTF = Job.getInstance(conf, "TF");
 		jobTF.setJarByClass(TermFrequency.class);
 		
 		jobTF.setMapperClass(TermFrequency.TermFrequencyMapper.class);
