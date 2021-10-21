@@ -2,13 +2,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class StoringLambdas {
+public class StoringLambdasExample2 {
+
     @SuppressWarnings("resource")
     public static void main(String[] args) {
         Map<Character, Runnable> commands = new HashMap<>();
         // Populate commands map
         commands.put('h', () -> System.out.println("Type h or q"));
         commands.put('q', () -> System.exit(0));
+
         while (true) {
             // Print menu
             System.out.println("Menu");

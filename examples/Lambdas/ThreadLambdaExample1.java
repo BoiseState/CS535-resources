@@ -4,7 +4,7 @@
  *
  */
 
-public class ThreadLambdaEx1 {
+public class ThreadLambdaExample1 {
   public static void main(String[] args) {
     Runnable r1 = new Runnable() {
       @Override
