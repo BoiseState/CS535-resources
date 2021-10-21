@@ -44,7 +44,7 @@ public final class WordCount
 	JavaRDD<String> lines = sc.textFile(args[0]);
 	System.out.println("#partitions: " + lines.getNumPartitions());
 	//lines = lines.coalesce(4);
-	System.out.println("#partitions: " + lines.getNumPartitions());
+	//System.out.println("#partitions: " + lines.getNumPartitions());
 
 	JavaRDD<String> words = lines.flatMap(s -> Arrays.asList(SPACE.split(s)).iterator());
 	JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
