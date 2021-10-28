@@ -9,6 +9,8 @@ public class SimpleLambdas {
 		l.add(2);
 		l.add(3);
 		l.add(4);
+		l.add(5);
+		l.add(6);
 
 		// Using lambda expression to print all elements of l
 		l.forEach(n -> System.out.println(n));

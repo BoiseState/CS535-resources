@@ -13,7 +13,7 @@ public class ThreadLambdaExample1 {
       }
     };
 
-    Runnable r2 = () -> { System.out.println("With Lambda"); };
+    Runnable r2 = () ->  System.out.println("With Lambda");
 
     new Thread(r1).start();
     new Thread(r2).start();

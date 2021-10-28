@@ -49,7 +49,7 @@ public final class WordCount
 	JavaRDD<String> words = lines.flatMap(s -> Arrays.asList(SPACE.split(s)).iterator());
 	JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
 	JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
-	//counts.saveAsTextFile("hdfs://bugs.boisestate.edu:9000/user/amit/output");
+	counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output");
 
 	List<Tuple2<String, Integer>> output = counts.collect();
 	for (Tuple2<?, ?> tuple : output) {
