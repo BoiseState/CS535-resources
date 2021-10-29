@@ -3,7 +3,7 @@ Build
 =====
 
 Build the jar file directly in Eclipse (just include all Spark jar files from
-~/spark-install/spark/jars as External jars for the project.
+~/spark-install/spark/jars as External jars for the project).
 
 Run
 ===
