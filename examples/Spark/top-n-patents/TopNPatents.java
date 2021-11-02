@@ -45,8 +45,8 @@ public final class TopNPatents {
 		int num = Integer.parseInt(args[1]);
 
 		// create one tuple for each citation of the form (patent#, 1)
-		JavaPairRDD<Integer, Integer> patents = lines
-				.mapToPair(s -> new Tuple2<>(Integer.parseInt(SPACE.split(s)[1]), 1));
+		JavaPairRDD<Integer, Integer> patents = 
+			lines.mapToPair(s -> new Tuple2<>(Integer.parseInt(SPACE.split(s)[1]), 1));
 		printRDD(patents);
 
 		// count the number of references to each patent that was cited

@@ -19,7 +19,7 @@ public final class CaseAnalysis
     public static void main(String[] args) throws Exception {
 
 	if (args.length < 1) {
-	    System.err.println("Usage: JavaWordCount <file or folder>");
+	    System.err.println("Usage: use spark-submit command!");
 	    System.exit(1);
 	}
 
@@ -28,6 +28,7 @@ public final class CaseAnalysis
 
 	JavaRDD<String> lines = sc.textFile(args[0]);
 	JavaRDD<String> letters = lines.flatMap(s -> Arrays.asList(s.split("")).iterator());
+	long n = letters.count();
 	System.out.println("count = " + letters.count());
 
 	JavaPairRDD<String, Integer> ones = letters.mapToPair(s -> {
@@ -50,9 +51,17 @@ public final class CaseAnalysis
 
 	Map<String, Long> totals = ones.countByKey();
 	totals.forEach((key, value) -> System.out.println(key + " " + value));
-	System.out.println();
 
 	sc.stop();
 	sc.close();
     }
+    
+    public static void printRDD(JavaPairRDD<Integer, Integer> rdd) {
+		List<Tuple2<Integer, Integer>> output = rdd.collect();
+		System.out.println();
+		for (Tuple2<?, ?> tuple : output) {
+			System.out.println("(" + tuple._1() + "," + tuple._2() + ")");
+		}
+		System.out.println();
+	}
 }
