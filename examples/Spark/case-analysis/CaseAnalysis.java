@@ -19,7 +19,8 @@ public final class CaseAnalysis
     public static void main(String[] args) throws Exception {
 
 	if (args.length < 1) {
-	    System.err.println("Usage: use spark-submit command!");
+	    System.err.println("Usage: spark-submit --class \"CaseAnalysis\" --master local[*]" 
+		    		+ " case-analysis.jar input");
 	    System.exit(1);
 	}
 
@@ -29,39 +30,51 @@ public final class CaseAnalysis
 	JavaRDD<String> lines = sc.textFile(args[0]);
 	JavaRDD<String> letters = lines.flatMap(s -> Arrays.asList(s.split("")).iterator());
 	long n = letters.count();
-	System.out.println("count = " + letters.count());
+	System.out.println("total #characters = " + n);
 
-	JavaPairRDD<String, Integer> ones = letters.mapToPair(s -> {
-	    Tuple2<String, Integer> t = new Tuple2<String, Integer>("other", 1);
+	JavaPairRDD<String, Long> ones = letters.mapToPair(s -> {
+	    Tuple2<String, Long> t = new Tuple2<String, Long>("other", 1L);
 	    if (s.length() > 0) {
 		if (Character.isUpperCase(s.charAt(0)))
-		    t = new Tuple2<>(s.toUpperCase(), 1);
-		else if (Character.isLowerCase(s.charAt(0))) t = new Tuple2<>(s.toUpperCase(), 0);
+		    t = new Tuple2<>(s.toUpperCase(), 1L);
+		else if (Character.isLowerCase(s.charAt(0))) t = new Tuple2<>(s.toUpperCase(), 0L);
 	    }
 	    return t;
 	});
 
-	JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
+	//This provides us with the number of times each character is capitalized
+	JavaPairRDD<String, Long> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
 	// counts.saveAsTextFile("hdfs://localhost:9000/user/amit/output");
-	counts.saveAsTextFile("output");
-	List<Tuple2<String, Integer>> output = counts.collect();
-	for (Tuple2<?, ?> tuple : output) {
-	    System.out.println(tuple._1() + ": " + tuple._2());
-	}
-
-	Map<String, Long> totals = ones.countByKey();
-	totals.forEach((key, value) -> System.out.println(key + " " + value));
+	counts.saveAsTextFile("output1");
+	printRDD(counts);
+	
+	
+	JavaPairRDD<String, Long> all = letters.mapToPair(s -> {
+	    Tuple2<String, Long> t = new Tuple2<String, Long>("other", 1L);
+	    if (s.length() > 0) {
+		if (Character.isUpperCase(s.charAt(0)))
+		    t = new Tuple2<>(s.toUpperCase(), 1L);
+		else if (Character.isLowerCase(s.charAt(0))) t = new Tuple2<>(s.toUpperCase(), 1L);
+	    }
+	    return t;
+	});
+	
+	//This provides us with the total counts for each character
+	JavaPairRDD<String, Long> allcounts = all.reduceByKey((i1, i2) -> i1 + i2);
+	counts.saveAsTextFile("output2");
+	printRDD(allcounts);
 
 	sc.stop();
 	sc.close();
     }
-    
-    public static void printRDD(JavaPairRDD<Integer, Integer> rdd) {
-		List<Tuple2<Integer, Integer>> output = rdd.collect();
-		System.out.println();
-		for (Tuple2<?, ?> tuple : output) {
-			System.out.println("(" + tuple._1() + "," + tuple._2() + ")");
-		}
-		System.out.println();
+
+
+    public static void printRDD(JavaPairRDD<String, Long> rdd) {
+	List<Tuple2<String, Long>> output = rdd.collect();
+	System.out.println();
+	for (Tuple2<?, ?> tuple : output) {
+	    System.out.println("(" + tuple._1() + "," + tuple._2() + ")");
 	}
+	System.out.println();
+    }
 }
