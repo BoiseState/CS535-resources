@@ -63,7 +63,7 @@ public final class CaseAnalysis
 	JavaPairRDD<String, Long> allcounts = all.reduceByKey((i1, i2) -> i1 + i2);
 	counts.saveAsTextFile("output2");
 	printRDD(allcounts);
-
+	
 	sc.stop();
 	sc.close();
     }
