@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """SimpleApp.py"""
 from pyspark.sql import SparkSession
 
