@@ -41,7 +41,7 @@ public final class WordCount
 	SparkConf conf = new SparkConf().setAppName("WordCount");
 	JavaSparkContext sc = new JavaSparkContext(conf);
 
-	JavaRDD<String> lines = sc.textFile(args[0]);
+	JavaRDD<String> lines = sc.textFile(args[0]);  //hdfs:cscluster00.boisestate.edu:9000/user/amit/input
 	System.out.println("#partitions: " + lines.getNumPartitions());
 	//lines = lines.coalesce(4);
 	//System.out.println("#partitions: " + lines.getNumPartitions());
