@@ -28,3 +28,5 @@ examples/Spark/simpleapp/target/
 examples/Spark/wordcount/.settings/
 examples/Spark/wordcount/log
 examples/Spark/case-analysis/.classpath
+examples/Spark/case-analysis/.settings/
+examples/Spark/case-analysis/log
