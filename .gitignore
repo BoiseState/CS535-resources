@@ -30,3 +30,4 @@ examples/Spark/wordcount/log
 examples/Spark/case-analysis/.classpath
 examples/Spark/case-analysis/.settings/
 examples/Spark/case-analysis/log
+examples/Spark/top-n-patents/.settings/
