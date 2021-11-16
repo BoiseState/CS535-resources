@@ -72,6 +72,7 @@ private static class Sum implements Function2<Double, Double, Double> {
     }
 
     showWarning();
+    int iterations = Integer.parseInt(args[1]);
 
     SparkConf conf = new SparkConf().setAppName("PageRank");
     JavaSparkContext sc = new JavaSparkContext(conf);
@@ -93,7 +94,7 @@ private static class Sum implements Function2<Double, Double, Double> {
     JavaPairRDD<String, Double> ranks = links.mapValues(rs -> 1.0);
 
     // Calculates and updates URL ranks continuously using PageRank algorithm.
-    for (int current = 0; current < Integer.parseInt(args[1]); current++) 
+    for (int current = 0; current < iterations; current++) 
     {
       // Calculates URL contributions to the rank of other URLs.
       JavaPairRDD<String, Double> contribs = links.join(ranks).values().flatMapToPair(s -> {
@@ -106,6 +107,7 @@ private static class Sum implements Function2<Double, Double, Double> {
         });
 
       // Re-calculates URL ranks based on neighbor contributions.
+      // damping factor d = 0.85 (probability that a web surfer will continue clicking on links)
       ranks = contribs.reduceByKey(new Sum()).mapValues(sum -> 0.15 + sum * 0.85);
     }
 
