@@ -31,3 +31,7 @@ examples/Spark/case-analysis/.classpath
 examples/Spark/case-analysis/.settings/
 examples/Spark/case-analysis/log
 examples/Spark/top-n-patents/.settings/
+examples/Spark/case-analysis/output1/
+examples/Spark/case-analysis/output2/
+examples/Spark/pagerank/.settings/
+
