@@ -26,8 +26,10 @@ import scala.Tuple2;
 
 import com.google.common.collect.Iterables;
 
+import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.sql.SparkSession;
 
@@ -71,17 +73,15 @@ private static class Sum implements Function2<Double, Double, Double> {
 
     showWarning();
 
-    SparkSession spark = SparkSession
-      .builder()
-      .appName("JavaPageRank")
-      .getOrCreate();
+    SparkConf conf = new SparkConf().setAppName("PageRank");
+    JavaSparkContext sc = new JavaSparkContext(conf);
 
     // Loads in input file. It should be in format of:
     //     URL         neighbor URL
     //     URL         neighbor URL
     //     URL         neighbor URL
     //     ...
-    JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();
+    JavaRDD<String> lines = sc.textFile(args[0]);
 
     // Loads all URLs from input file and initialize their neighbors.
     JavaPairRDD<String, Iterable<String>> links = lines.mapToPair(s -> {
@@ -93,10 +93,10 @@ private static class Sum implements Function2<Double, Double, Double> {
     JavaPairRDD<String, Double> ranks = links.mapValues(rs -> 1.0);
 
     // Calculates and updates URL ranks continuously using PageRank algorithm.
-    for (int current = 0; current < Integer.parseInt(args[1]); current++) {
+    for (int current = 0; current < Integer.parseInt(args[1]); current++) 
+    {
       // Calculates URL contributions to the rank of other URLs.
-      JavaPairRDD<String, Double> contribs = links.join(ranks).values()
-        .flatMapToPair(s -> {
+      JavaPairRDD<String, Double> contribs = links.join(ranks).values().flatMapToPair(s -> {
           int urlCount = Iterables.size(s._1());
           List<Tuple2<String, Double>> results = new ArrayList<>();
           for (String n : s._1) {
@@ -115,6 +115,7 @@ private static class Sum implements Function2<Double, Double, Double> {
       System.out.println(tuple._1() + " has rank: " + tuple._2() + ".");
     }
 
-    spark.stop();
+    sc.stop();
+    sc.close();
   }
 }

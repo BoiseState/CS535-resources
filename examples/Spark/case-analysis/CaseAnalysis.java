@@ -32,7 +32,7 @@ public final class CaseAnalysis {
 		System.out.println("total #characters = " + n);
 
 		JavaPairRDD<String, Long> ones = letters.mapToPair(s -> {
-			Tuple2<String, Long> t = new Tuple2<String, Long>("other", 1L);
+			Tuple2<String, Long> t = new Tuple2<String, Long>("other", 0L);
 			if (s.length() > 0) {
 				if (Character.isUpperCase(s.charAt(0)))
 					t = new Tuple2<>(s.toUpperCase(), 1L);

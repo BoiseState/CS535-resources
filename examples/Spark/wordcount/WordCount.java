@@ -50,14 +50,14 @@ public final class WordCount
 	JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
 	JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
 	// (the, 1) (the, 3) (the, 3) => (the, 7) (and, 1) (and,1) => (and, 2)
-	//counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output");
-	counts.saveAsTextFile("file://output");
+	counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output");
+	//counts.saveAsTextFile("file:///home/amit/output");
 
 
-	List<Tuple2<String, Integer>> output = counts.collect();
-	for (Tuple2<?, ?> tuple : output) {
-	    System.out.println(tuple._1() + ": " + tuple._2());
-	}
+//	List<Tuple2<String, Integer>> output = counts.collect();
+//	for (Tuple2<?, ?> tuple : output) {
+//	    System.out.println(tuple._1() + ": " + tuple._2());
+//	}
 	sc.stop();
 	sc.close();
     }

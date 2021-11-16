@@ -38,7 +38,7 @@ public final class TopNPatents {
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
 		JavaRDD<String> lines = sc.textFile(args[0]);
-		int num = Integer.parseInt(args[1]);
+		int n = Integer.parseInt(args[1]);
 
 		// create one tuple for each citation of the form (patent#, 1)
 		// we are grabbing split(s)[1], which is the second field of the line
@@ -60,7 +60,7 @@ public final class TopNPatents {
 
 		// Take the top N and print them
 		System.out.println();
-		swappedPatents.take(num).forEach(s -> System.out.println(s));
+		swappedPatents.take(n).forEach(s -> System.out.println(s));
 		System.out.println();
 
 		sc.stop();
