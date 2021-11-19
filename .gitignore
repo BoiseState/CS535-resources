@@ -34,4 +34,6 @@ examples/Spark/top-n-patents/.settings/
 examples/Spark/case-analysis/output1/
 examples/Spark/case-analysis/output2/
 examples/Spark/pagerank/.settings/
+examples/Spark/correlation/.settings/
+examples/Spark/spark-sql-example/.settings/
 
