@@ -25,7 +25,6 @@ public final class CrossCorrelation
 {
     private static final Pattern SPACE = Pattern.compile("\\s+");
 
-
     public static void printRDD(JavaRDD<?> rdd) {
 	rdd.collect().forEach(x -> System.out.println(x + " "));
 	System.out.println();
@@ -58,6 +57,7 @@ public final class CrossCorrelation
 	JavaRDD<Tuple2<String, String>> pairs = lines.flatMap( s -> {
 	    String[] x = SPACE.split(s);
 	    ArrayList<Tuple2<String, String>> list = new ArrayList<Tuple2<String, String>>();
+	    // Generate all unique pairs from items on one line (in one order)
 	    for (int i = 0; i < x.length; i++)
 		for (int j = i; j < x.length; j++)
 			if (x[i].compareTo(x[j]) < 0) list.add(new Tuple2<String, String>(x[i], x[j])); 
