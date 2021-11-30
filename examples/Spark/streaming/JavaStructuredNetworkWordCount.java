@@ -47,13 +47,15 @@ public final class JavaStructuredNetworkWordCount
 	// Generate running word count
 	Dataset<Row> wordCounts = words.groupBy("value").count();
 
-	// Start running the query that prints the running counts to the console
-	// StreamingQuery query = wordCounts.writeStream().outputMode("complete")
-	//	                       .format("console").start();
+	//Start running the query that prints the running counts to the console
+	//It runs every second, by default
 	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
-		               .format("console")
-		               .trigger(Trigger.ProcessingTime(5000))
-		               .start();
+		                       .format("console").start();
+	//Trigger the query every 5 seconds
+//	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
+//		               .format("console")
+//		               .trigger(Trigger.ProcessingTime(5000))
+//		               .start();
 
 // Requires watermark 
 //	StreamingQuery query = wordCounts.writeStream().outputMode("append")
@@ -62,6 +64,7 @@ public final class JavaStructuredNetworkWordCount
 //	               .start();
 
 	query.awaitTermination();
+	
 
     }
 }
