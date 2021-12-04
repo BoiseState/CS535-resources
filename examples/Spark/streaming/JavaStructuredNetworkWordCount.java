@@ -32,8 +32,8 @@ public final class JavaStructuredNetworkWordCount
 
 	SparkSession spark = SparkSession.builder().appName("JavaStructuredNetworkWordCount").getOrCreate();
 
-	// Create DataFrame representing the stream of input lines from connection to
-	// localhost:9999
+	// Create DataFrame representing the stream of input lines 
+	// from the connection to localhost:9999
 	Dataset<Row> lines = spark.readStream()
 		.format("socket")
 		.option("host", "localhost")

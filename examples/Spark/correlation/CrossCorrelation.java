@@ -67,6 +67,8 @@ public final class CrossCorrelation
             return list.iterator();
         }); 
         printRDD(pairs);
+        
+        //purse shoes toothbrush lipstick soap -> cartesian, sort, filter
 
         JavaPairRDD<Tuple2<String, String>, Integer> correlation = 
                 pairs.mapToPair(s -> new Tuple2<Tuple2<String, String>, Integer>(s, 1));
