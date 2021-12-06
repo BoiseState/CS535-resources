@@ -38,3 +38,6 @@ examples/Spark/correlation/.settings/
 examples/Spark/spark-sql-example/.settings/
 examples/Spark/streaming/.settings/
 examples/Spark/streaming/log
+examples/Spark/simpleapp-scala/project/
+examples/Spark/simpleapp-scala/target/
+
