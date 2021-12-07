@@ -36,9 +36,9 @@ object Example1 {
 
     println(graph)
 
+    println()
     graph.vertices.foreach(println(_))
     graph.edges.foreach(println(_))
-
     println()
 
     val inDegrees: VertexRDD[Int] = graph.inDegrees
@@ -61,6 +61,24 @@ object Example1 {
       triplet.srcAttr._1 + " is the " + triplet.attr + " of " + triplet.dstAttr._1)
     facts.collect.foreach(println(_))
     println()
+
+    val reverse = graph.reverse
+    println()
+    println("--reverse graph---")
+    reverse.vertices.foreach(println(_))
+    reverse.edges.foreach(println(_))
+    println()
+
+    val reverseInDegrees: VertexRDD[Int] = reverse.inDegrees
+    println("in degrees");
+    reverseInDegrees.collect.foreach(println(_))
+    println()
+
+    val reverseOutDegrees: VertexRDD[Int] = reverse.outDegrees
+    println("out degrees");
+    reverseOutDegrees.collect.foreach(println(_))
+    println()
+
 
     spark.stop()
   }

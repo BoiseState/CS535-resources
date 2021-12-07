@@ -13,30 +13,30 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * modified by amit
+ * Shows the use of a Pregel:
+ *
+ * Pregel (a portmanteu of the words Parallel, Graph, and Google) is a data flow paradigm and 
+ * system for large-scale graph processing created at Google to solve problems that are hard 
+ * or expensive to solve using only the MapReduce framework.
  */
 
-// scalastyle:off println
 
-// $example on$
 import org.apache.spark.graphx.{Graph, VertexId}
 import org.apache.spark.graphx.util.GraphGenerators
-// $example off$
 import org.apache.spark.sql.SparkSession
 
 /**
  * An example use the Pregel operator to express computation
  * such as single source shortest path
- * Run with
- * {{{
- * bin/run-example graphx.SSSPExample
- * }}}
  */
 object SSSPExample {
   def main(args: Array[String]): Unit = {
     // Creates a SparkSession.
     val spark = SparkSession
       .builder
-      .appName(s"${this.getClass.getSimpleName}")
+      .appName("shortest-paths")
       .getOrCreate()
     val sc = spark.sparkContext
 
@@ -44,10 +44,24 @@ object SSSPExample {
     // A graph with edge attributes containing distances
     val graph: Graph[Long, Double] =
       GraphGenerators.logNormalGraph(sc, numVertices = 100).mapEdges(e => e.attr.toDouble)
+
+    println()
+    println("Number of vertices = " + graph.numVertices)
+    println("Number of edges = " + graph.numEdges)
+    println()
+
+    //println()
+    //println(" --- Initial Graph ---")
+    //graph.vertices.foreach(println(_))
+    //graph.edges.foreach(println(_))
+    //println()
+
     val sourceId: VertexId = 42 // The ultimate source
     // Initialize the graph such that all vertices except the root have distance infinity.
+    //
     val initialGraph = graph.mapVertices((id, _) =>
         if (id == sourceId) 0.0 else Double.PositiveInfinity)
+
     val sssp = initialGraph.pregel(Double.PositiveInfinity)(
       (id, dist, newDist) => math.min(dist, newDist), // Vertex Program
       triplet => {  // Send Message
@@ -59,10 +73,10 @@ object SSSPExample {
       },
       (a, b) => math.min(a, b) // Merge Message
     )
+    println("---- final distances for each vertex from the source vertex 42 ----");
     println(sssp.vertices.collect.mkString("\n"))
-    // $example off$
 
+    // show how to print vertices 0-99
     spark.stop()
   }
 }
-// scalastyle:on println
