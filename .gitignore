@@ -38,3 +38,8 @@ examples/Spark/correlation/.settings/
 examples/Spark/spark-sql-example/.settings/
 examples/Spark/streaming/.settings/
 examples/Spark/streaming/log
+examples/Spark/graphX/example1/project/
+examples/Spark/graphX/example1/target/
+examples/Spark/graphX/shortest-paths/project/
+examples/Spark/graphX/shortest-paths/target/
+
