@@ -42,4 +42,6 @@ examples/Spark/graphX/example1/project/
 examples/Spark/graphX/example1/target/
 examples/Spark/graphX/shortest-paths/project/
 examples/Spark/graphX/shortest-paths/target/
+examples/Spark/simpleapp-scala/project/
+examples/Spark/simpleapp-scala/target/
 
