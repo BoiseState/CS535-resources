@@ -36,4 +36,4 @@ examples/Spark/case-analysis/output2/
 examples/Spark/pagerank/.settings/
 examples/Spark/correlation/.settings/
 examples/Spark/spark-sql-example/.settings/
-
+examples/Spark/streaming/.classpath
