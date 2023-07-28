@@ -26,7 +26,7 @@
 		<description>
 		The maximum number of map tasks which are run simultaneously
 		on a given TaskTracker individually. This should be a prime 
-		number larger than multiple of the number of slave hosts.
+		number larger than multiple of the number of worker hosts.
 		</description>
 	</property>
 

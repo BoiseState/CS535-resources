@@ -25,7 +25,7 @@ then
 	cp hdfs-site.xml.standalone ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
 	cp mapred-site.xml.standalone ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
 	cp masters.standalone ${HADOOP_HOME}/etc/hadoop/masters
-	cp slaves.standalone ${HADOOP_HOME}/etc/hadoop/slaves
+	cp workers.standalone ${HADOOP_HOME}/etc/hadoop/workers
 	exit
 fi
 
@@ -37,7 +37,7 @@ then
 	cp hdfs-site.xml.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
 	cp mapred-site.xml.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
 	cp masters.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/masters
-	cp slaves.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/slaves
+	cp workers.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/workers
 	exit
 fi
 
@@ -45,13 +45,13 @@ if test "${1:0:1}" == "d"
 then
 	master=$(hostname)
 	echo "Setting up config files for distributed mode (assuming $master as master node)."
-	echo "Make sure to update the etc/hadoop/slaves files in the hadoop install folder with your nodes"
+	echo "Make sure to update the ${HADOOP_HOME}/etc/hadoop/workers files in the hadoop install folder with your nodes"
 	cp core-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/core-site.xml
 	cp hdfs-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml
 	cp mapred-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/mapred-site.xml
 	cp yarn-site.xml.distributed ${HADOOP_HOME}/etc/hadoop/yarn-site.xml
 	cp masters.distributed ${HADOOP_HOME}/etc/hadoop/masters
-	cp slaves.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/slaves
+	cp workers.pseudo-distributed ${HADOOP_HOME}/etc/hadoop/workers
 	#
 	sed 's/YOURUSERNAME/'"$(whoami)"'/' ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml > temp.$$
 	mv temp.$$ ${HADOOP_HOME}/etc/hadoop/hdfs-site.xml

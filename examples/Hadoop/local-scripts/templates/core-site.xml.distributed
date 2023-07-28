@@ -5,8 +5,14 @@
 
 <configuration>
 	<property>
-       <name>fs.default.name</name>
+       <name>fs.defaultFS</name>
 	   <value>hdfs://MASTERNODE:9000</value>
 	   <description>The name of the default filesystem.</description>
+	</property>
+
+	<property>
+       <name>io.file.buffer.sizename>
+	   <value>131072</value>
+	   <description>Size of read/write buffer use din SequenceFiles (bigger than the system default!)</description>
 	</property>
 </configuration>
