@@ -26,6 +26,17 @@
     <value>MASTERNODE</value>
  </property>
 
+  <property>
+     <name>yarn.nodemanager.env-whitelist</name>
+     <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_HOME,PATH,LANG,TZ,HADOOP_MAPRED_HOME</value>
+  </property>
+
+  <property>
+     <name>yarn.nodemanager.vmem-check-enabled</name>
+     <value>false</value>
+  </property>
+
+
  <property>
    <name>yarn.resourcemanager.address</name>
    <value>${yarn.resourcemanager.hostname}:8032</value>
