@@ -32,6 +32,10 @@ public class JavaUserDefinedTypedAggregation {
 
   // $example on:typed_custom_aggregation$
   public static class Employee implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 6808724033136741725L;
     private String name;
     private long salary;
 
@@ -56,6 +60,7 @@ public class JavaUserDefinedTypedAggregation {
   }
 
   public static class Average implements Serializable  {
+    private static final long serialVersionUID = 2131061556452201518L;
     private long sum;
     private long count;
 
@@ -88,6 +93,10 @@ public class JavaUserDefinedTypedAggregation {
   }
 
   public static class MyAverage extends Aggregator<Employee, Average, Double> {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1905353441843582843L;
     // A zero value for this aggregation. Should satisfy the property that any b + zero = b
     public Average zero() {
       return new Average(0L, 0L);
