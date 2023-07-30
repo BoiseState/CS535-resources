@@ -56,7 +56,7 @@ object SSSPExample {
     //graph.edges.foreach(println(_))
     //println()
 
-    val sourceId: VertexId = 42 // The ultimate source
+    val sourceId: VertexId = 0 // The ultimate source
     // Initialize the graph such that all vertices except the root have distance infinity.
     //
     val initialGraph = graph.mapVertices((id, _) =>
@@ -77,6 +77,12 @@ object SSSPExample {
     println(sssp.vertices.collect.mkString("\n"))
 
     // show how to print vertices 0-99
+    val sortedVertices = sssp.vertices.sortByKey()
+    println()
+    println(" --- Final Vertex List ---")
+    sortedVertices.collect().foreach(println(_))
+    println()
+
     spark.stop()
   }
 }

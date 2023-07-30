@@ -8,7 +8,6 @@ import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.StreamingQuery;
-import org.apache.spark.sql.streaming.Trigger;
 
 /**
  * Counts words in UTF8 encoded, '\n' delimited text received from the network

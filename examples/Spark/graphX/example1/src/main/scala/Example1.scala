@@ -51,6 +51,11 @@ object Example1 {
     outDegrees.collect.foreach(println(_))
     println()
 
+    val degrees: VertexRDD[Int] = graph.degrees
+    println("total degrees");
+    degrees.collect.foreach(println(_))
+    println()
+
     // Count all the edges where src > dst
     val count = graph.edges.filter(e => e.srcId > e.dstId).count
     println("#(u, v) with u > v:"  + count)
