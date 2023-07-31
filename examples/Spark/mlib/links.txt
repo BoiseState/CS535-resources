@@ -1,3 +1,0 @@
-https://www.datacamp.com/cheat-sheet/pyspark-cheat-sheet-spark-in-python
-
-https://www.datacamp.com/tutorial/pyspark-tutorial-getting-started-with-pyspark
