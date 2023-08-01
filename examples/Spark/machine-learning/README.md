@@ -27,3 +27,10 @@ Reading files from GitHub
 
 url = 'copied_raw_github_link'
 df = pd.read_csv(url)
+
+
+Reading files from Google drive
+
+from google.colab import drive
+drive.mount('content/drive')
+path_to_data = '/content/drive/My Drive/Data'
