@@ -8,6 +8,19 @@ Need to install the following packages:
  pip install pyspark
  pip install findspark
 
+#Using Google colabs
+
+!pip install findspark
+!pip install pyspark
+
+from google.colab import files
+uploaded = files.upload()
+--> will display file chooser
+the read file as usual in spark
+
+
+
+#Reading local/drive files in Gooogle colab
 
 Reading local files into Google colab
 
