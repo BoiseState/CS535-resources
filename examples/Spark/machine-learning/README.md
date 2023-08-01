@@ -8,3 +8,17 @@ Need to install the following packages:
  pip install pyspark
  pip install findspark
 
+
+Google colab
+
+ import pandas as pd
+ import io
+ from google.colab import files
+ uploaded = files.upload()
+
+ df = pd.read_csv(io.BytesIO(uploaded['FileName.csv']))
+
+ check
+
+ df.head()
+
