@@ -9,7 +9,7 @@ Need to install the following packages:
  pip install findspark
 
 
-Google colab
+Reading local files into Google colab
 
  import pandas as pd
  import io
@@ -22,3 +22,8 @@ Google colab
 
  df.head()
 
+
+Reading files from GitHub
+
+url = 'copied_raw_github_link'
+df = pd.read_csv(url)
