@@ -13,36 +13,21 @@ Need to install the following packages:
 !pip install findspark
 !pip install pyspark
 
+##Reading local/drive files in Gooogle colab
+
 from google.colab import files
 uploaded = files.upload()
 --> will display file chooser
-the read file as usual in spark
+then read file as usual in spark
 
 
-
-#Reading local/drive files in Gooogle colab
-
-Reading local files into Google colab
-
- import pandas as pd
- import io
- from google.colab import files
- uploaded = files.upload()
-
- df = pd.read_csv(io.BytesIO(uploaded['FileName.csv']))
-
- check
-
- df.head()
-
-
-Reading files from GitHub
+##Reading files from GitHub
 
 url = 'copied_raw_github_link'
 df = pd.read_csv(url)
 
 
-Reading files from Google drive
+#Reading files from Google drive
 
 from google.colab import drive
 drive.mount('content/drive')
