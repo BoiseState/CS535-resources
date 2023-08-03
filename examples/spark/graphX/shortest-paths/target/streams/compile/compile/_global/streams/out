@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/amit/Documents/CS535-resources/examples/Spark/graphX/shortest-paths/src/main/scala/SSSPExample.scala:83:20: value vertices is not a member of org.apache.spark.rdd.RDD[(org.apache.spark.graphx.VertexId, Double)][0m
+[0m[[0m[31merror[0m] [0m[0m    sortedVertices.vertices.foreach(println(_))[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
