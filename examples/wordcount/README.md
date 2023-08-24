@@ -23,11 +23,11 @@ Comparison of runtimes:
 ```
 [amit@localhost Wordcount(master)]$ time java WordCount input > output
 
-real    0m1.561s
+real    0m1.482s
 
 [amit@localhost Wordcount(master)]$ time ./word_count.py input > output
 
-real    0m1.561s
+real    0m1.000s
 
 [amit@localhost Wordcount(master)]$ time wordcount.sh > output
 

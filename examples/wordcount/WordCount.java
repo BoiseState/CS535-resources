@@ -1,7 +1,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class WordCount
 {
-    private Hashtable<String, Integer> dictionary = new Hashtable<String, Integer>();
+    private HashMap<String, Integer> dictionary = new HashMap<String, Integer>();
 
     /**
      * Constructor: Process all files in the given folder into a dictionary.
@@ -36,10 +36,10 @@ public class WordCount
 	    	while (scan.hasNext()) {
 				String word = scan.next();
 				if (dictionary.containsKey(word)) {
-		    	nteger count = dictionary.get(word);
-		    	dictionary.replace(word, count + 1);
+		    		Integer count = dictionary.get(word);
+		    		dictionary.replace(word, count + 1);
 				} else {
-		    	dictionary.put(word, 1);
+		    		dictionary.put(word, 1);
 				}
 	    	}
 	    scan.close();
