@@ -17,11 +17,11 @@ public class WordCount
      * @param inputFolder   the folder containing the text files
      */
     public WordCount(File inputFolder) {
-	for (File f : inputFolder.listFiles()) {
-	    // System.err.println("Processing file: " + f);
-	    processFile(f);
+		for (File f : inputFolder.listFiles()) {
+	    	// System.err.println("Processing file: " + f);
+	    	processFile(f);
+		}
 	}
-    }
 
 
     /**
@@ -31,21 +31,21 @@ public class WordCount
      * @param file
      */
     private void processFile(File file) {
-	try {
-	    Scanner scan = new Scanner(file);
-	    while (scan.hasNext()) {
-		String word = scan.next();
-		if (dictionary.containsKey(word)) {
-		    Integer count = dictionary.get(word);
-		    dictionary.replace(word, count + 1);
-		} else {
-		    dictionary.put(word, 1);
-		}
-	    }
+		try {
+	    	Scanner scan = new Scanner(file);
+	    	while (scan.hasNext()) {
+				String word = scan.next();
+				if (dictionary.containsKey(word)) {
+		    	nteger count = dictionary.get(word);
+		    	dictionary.replace(word, count + 1);
+				} else {
+		    	dictionary.put(word, 1);
+				}
+	    	}
 	    scan.close();
-	} catch (FileNotFoundException e) {
-	    e.printStackTrace();
-	}
+		} catch (FileNotFoundException e) {
+	    	e.printStackTrace();
+		}
     }
 
 
@@ -53,21 +53,21 @@ public class WordCount
      * Print all words and their counts in the dictionary.
      */
     private void printDictionary() {
-	for (String word : dictionary.keySet()) {
-	    System.out.println(word + " " + dictionary.get(word));
-	}
+		for (String word : dictionary.keySet()) {
+	    	System.out.println(word + " " + dictionary.get(word));
+		}
     }
 
 
     public static void main(String[] args) {
-	if (args.length != 1) {
-	    System.out.println("Usage: java WordCount <input-folder>");
-	    System.exit(1);
-	}
-	String input = args[0];
+		if (args.length != 1) {
+	    	System.out.println("Usage: java WordCount <input-folder>");
+	    	System.exit(1);
+		}
+		String input = args[0];
 
-	File inputFolder = new File(input);
-	WordCount processor = new WordCount(inputFolder);
-	processor.printDictionary();
+		File inputFolder = new File(input);
+		WordCount processor = new WordCount(inputFolder);
+		processor.printDictionary();
     }
 }

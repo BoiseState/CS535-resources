@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import sys
 
 class WordCount:
     def __init__(self, folder_path):
@@ -23,13 +24,18 @@ class WordCount:
     
     def print_dictionary(self):
         for item in self.words_count.items():
-            print(item[0], " : ", item[1])
+            print(item[0], " ", item[1])
             
 
 def main():
-    folder = "input"
-    preprocessor = WordCount(folder)
-    preprocessor.print_dictionary()
+    n = len(sys.argv)
+    if n == 1:
+        print("Usage: ", sys.argv[0], " <input folder>")
+        exit(1)
+    else:
+        folder = sys.argv[1]
+        preprocessor = WordCount(folder)
+        preprocessor.print_dictionary()
     
   
 # Using the special variable 
