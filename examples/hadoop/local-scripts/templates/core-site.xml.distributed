@@ -13,6 +13,6 @@
 	<property>
        <name>io.file.buffer.size</name>
 	   <value>131072</value>
-	   <description>Size of read/write buffer use din SequenceFiles (bigger than the system default!)</description>
+	   <description>Size of read/write buffer used in SequenceFiles (bigger than the system default!)</description>
 	</property>
 </configuration>
