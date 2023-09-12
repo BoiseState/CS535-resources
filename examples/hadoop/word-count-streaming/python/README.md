@@ -4,7 +4,7 @@
 
 Test it locally first:
 
-echo "the the and me and me the" | mapper.py | sort | reducer.py
+echo "the the and me and me the" | ./mapper.py | sort | ./reducer.py
 
 
 ##To run:

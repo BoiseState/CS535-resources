@@ -2,10 +2,17 @@
 
 #Building and running streaming Hadoop MapReduce jobs with Java
 
+Compile the java classes:
+
+```
+javac *.java
+```
+
 Test it locally first:
 
+```
 echo "the the and me and me the" | java Mapper | sort | java Reducer
-
+```
 
 ##To run:
 
@@ -14,7 +21,9 @@ the following steps. See class notes for more details.
 
 For this to work, I had to increase the max heap size  to 4000m in ~/hadoop-install/hadoop/etc/hadoop.yarn-env.sh
 
+```
 JAVA_HEAP_MAX=-Xmx4000m
+```
 
 
 ```
@@ -24,9 +33,3 @@ hadoop jar ~/hadoop-install/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar
 
 hdfs dfs -get output
 ```
-
-
-
-
-
-
