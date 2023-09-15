@@ -10,3 +10,5 @@ do
 	echo "...attempting to kill $f"
 	ssh -n  $host sudo kill -9 $pid
 done 
+
+/bin/rm -f list.$$
