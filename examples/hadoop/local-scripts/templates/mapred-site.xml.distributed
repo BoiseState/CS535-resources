@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+  </property>
+
+	<property>
+		<name>mapreduce.system.dir</name>
+		<value>/tmp/hadoop-YOURUSERNAME/mapred/system</value>
+	</property>
+
+	<property>
+		<name>mapreduce.local.dir</name>
+		<value>/tmp/hadoop-YOURUSERNAME/mapred/local</value>
+	</property>
+
+	<property>
+		<name>mapreduce.map.tasks.maximum</name>
+		<value>32</value>
+		<description>
+		The maximum number of map tasks which are run simultaneously
+		on a given TaskTracker individually. This should be a prime 
+		number larger than multiple of the number of worker hosts.
+		</description>
+	</property>
+
+	<property>
+		<name>mapreduce.reduce.tasks.maximum</name>
+		<value>32</value>
+	</property>
+</configuration>

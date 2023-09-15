@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/home/amit/Documents/CS535-resources/examples/Spark/graphX/example1/src/main/scala/Example1.scala:72:9: inDegrees is already defined as value inDegrees[0m
+[0m[[0m[31merror[0m] [0m[0m    val inDegrees: VertexRDD[Int] = graph.inDegrees[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/amit/Documents/CS535-resources/examples/Spark/graphX/example1/src/main/scala/Example1.scala:77:9: outDegrees is already defined as value outDegrees[0m
+[0m[[0m[31merror[0m] [0m[0m    val outDegrees: VertexRDD[Int] = graph.outDegrees[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
