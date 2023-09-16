@@ -35,19 +35,19 @@ then
 	exit 1
 fi
 
-# check to see that the etc/hadoop/slaves  matches the nodes allocated to the user
-cp etc/hadoop/slaves etc/hadoop/slaves.orig
-qstat -1n | grep ${USER:0:8} | awk '{print $NF}' | awk -F+ '{for (i=1; i<=NF; i++) printf("%s\n", substr($i, 0, 6));}' > etc/hadoop/slaves
+# check to see that the etc/hadoop/workers  matches the nodes allocated to the user
+cp etc/hadoop/workers etc/hadoop/workers.orig
+qstat -1n | grep ${USER:0:8} | awk '{print $NF}' | awk -F+ '{for (i=1; i<=NF; i++) printf("%s\n", substr($i, 0, 6));}' > etc/hadoop/workers
 
 /bin/rm -fr logs pids
 mkdir {logs,pids}
 
-pdsh -w - < etc/hadoop/slaves  /bin/rm -fr /tmp/hadoop-`whoami`
-pdsh -w - < etc/hadoop/slaves  mkdir /tmp/hadoop-`whoami`
-pdsh -w - < etc/hadoop/slaves  chmod 700 /tmp/hadoop-`whoami`
+pdsh -w - < etc/hadoop/workers  /bin/rm -fr /tmp/hadoop-`whoami`
+pdsh -w - < etc/hadoop/workers  mkdir /tmp/hadoop-`whoami`
+pdsh -w - < etc/hadoop/workers  chmod 700 /tmp/hadoop-`whoami`
 
 cd etc/hadoop
-for node in $(cat slaves)
+for node in $(cat workers)
 do
     mkdir -p ../pids/$node
 done

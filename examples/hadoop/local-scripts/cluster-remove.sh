@@ -11,12 +11,12 @@ echo
 if test "$response" = "y"
 then
   echo `pwd`
-	sbin/stop-yarn.sh
-	sbin/stop-dfs.sh
+	stop-yarn.sh
+	stop-dfs.sh
 	/bin/rm -fr logs pids
 	echo
 	echo "Removing hadoop filesystem directories"
-	pdsh -w - < etc/hadoop/slaves  /bin/rm -fr /tmp/hadoop-`whoami`*
+	pdsh -w - < etc/hadoop/workers  /bin/rm -fr /tmp/hadoop-`whoami`*
 	rm -fr /tmp/hadoop-`whoami`*
 	echo
 fi
