@@ -2,3 +2,7 @@ case-analysis/.classpath
 inverted-index/.classpath 
 case-analysis/output/
 inverted-index/output/
+word-count-streaming/java/output-java/
+word-count-streaming/output-wc/
+word-count-streaming/python/output-python/
+word-count/output/

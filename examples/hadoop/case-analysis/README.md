@@ -18,9 +18,9 @@ Create a normal Java project and add the following external jar files (adjusting
 paths):
 
 ```
-hadoop/hadoop-2.10.1/share/hadoop/common/hadoop-common-2.10.1.jar
-hadoop/hadoop-2.10.1/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.10.1.jar
-hadoop/hadoop-2.10.1/share/hadoop/hdfs/lib/commons-cli-1.2.jar
+hadoop/hadoop-3.3.6/share/hadoop/common/hadoop-common-3.3.6.jar
+hadoop/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.6.jar
+hadoop/hadoop-3.3.6/share/hadoop/hdfs/lib/commons-cli-1.2.jar
 ```
 
 Then export project as jar file and you should be set.
@@ -33,7 +33,7 @@ the following steps. See Hadoop wiki for more info here:
 
 ```
 hdfs  dfs -put input
-hadoop jar case-analysis.jar input output
+hadoop jar case-analysis.jar CaseAnalysis input output
 hdfs dfs -get output
 ```
 
