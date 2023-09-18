@@ -1,9 +1,9 @@
-Toy Story (1995)	2077
-Jumanji (1995)	701
-Grumpier Old Men (1995)	478
-Waiting to Exhale (1995)	170
-Father of the Bride Part II (1995)	296
-Heat (1995)	940
+Toy Story (1995)	9999
+Jumanji (1995)	9999
+Grumpier Old Men (1995)	9999
+Waiting to Exhale (1995)	9999
+Father of the Bride Part II (1995)	9999
+Heat (1995)	9999
 Sabrina (1995)	458
 Tom and Huck (1995)	68
 Sudden Death (1995)	102
@@ -1261,7 +1261,6 @@ Night on Earth (1991)	194
 Raise the Red Lantern (1991)	277
 Great Dictator, The (1940)	216
 Fantasia (1940)	943
-High Noon (1952)	5403
 Big Sleep, The (1946)	541
 Heathers (1989)	803
 Somewhere in Time (1980)	285
@@ -2488,13 +2487,11 @@ Baby Geniuses (1999)	164
 Telling You (1998)	1
 I Stand Alone (Seul contre tous) (1998)	5
 Forces of Nature (1999)	235
-King and I, The (1999)	27
 Ravenous (1999)	171
 True Crime (1999)	131
 Bandits (1997)	9
 Beauty (1998)	1
 Empty Mirror, The (1999)	0
-King and I, The (1956)	372
 Doug's 1st Movie (1999)	40
 EDtv (1999)	302
 Mod Squad, The (1999)	214
@@ -3410,7 +3407,6 @@ Empire Records (1995)	271
 Bamba, La (1987)	266
 Ladyhawke (1985)	542
 Lucas (1986)	155
-High Fidelity (2000)	1373
 Price of Glory (2000)	3
 Road to El Dorado, The (2000)	168
 Skulls, The (2000)	302

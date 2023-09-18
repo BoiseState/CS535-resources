@@ -20,8 +20,8 @@ public class TopNMoviesDriver {
         // provided will show error 
         if (otherArgs.length < 2)  
         { 
-            System.err.println("Error: please provide two paths"); 
-            System.exit(2); 
+            System.err.println("Usage: hadoop jar <jar fle name> <input folder> <output folder>"); 
+            System.exit(1); 
         } 
   
         Job job = Job.getInstance(conf, "top 10"); 

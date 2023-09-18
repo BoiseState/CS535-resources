@@ -107,7 +107,7 @@ Muppet Treasure Island (1996)	256
 Catwalk (1995)	7
 Headless Body in Topless Bar (1995)	0
 Braveheart (1995)	2443
-Taxi Driver (1976)	1240
+Taxi Driver (1976)	1200
 Rumble in the Bronx (1995)	570
 Before and After (1996)	53
 Margaret's Museum (1995)	11
@@ -159,7 +159,7 @@ Clockers (1995)	116
 Congo (1995)	565
 Crimson Tide (1995)	760
 Crumb (1994)	491
-Desperado (1995)	540
+Desperado (1995)	5000
 Devil in a Blue Dress (1995)	379
 Die Hard: With a Vengeance (1995)	825
 Doom Generation, The (1995)	61
@@ -262,7 +262,7 @@ Ladybird Ladybird (1994)	28
 Enfer, L' (1994)	5
 Like Water for Chocolate (Como agua para chocolate) (1992)	772
 Legends of the Fall (1994)	705
-Major Payne (1994)	140
+Major Payne (1994)	1000
 Little Odessa (1994)	54
 My Crazy Life (Mi vida loca) (1993)	55
 Love Affair (1994)	79
@@ -273,7 +273,7 @@ Man of the House (1995)	24
 Mixed Nuts (1994)	80
 Milk Money (1994)	228
 Miracle on 34th Street (1994)	170
-Miami Rhapsody (1995)	40
+Miami Rhapsody (1995)	1000
 My Family (1995)	46
 Murder in the First (1995)	212
 Nobody's Fool (1994)	233
@@ -372,20 +372,20 @@ Richie Rich (1994)	183
 Safe Passage (1994)	17
 River Wild, The (1994)	350
 Speed (1994)	1650
-Speechless (1994)	140
+Speechless (1994)	1000
 Timecop (1994)	436
 True Lies (1994)	1400
 When a Man Loves a Woman (1994)	211
 Wolf (1994)	272
 Wyatt Earp (1994)	270
-Bad Company (1995)	40
+Bad Company (1995)	1000
 Man of No Importance, A (1994)	10
 S.F.W. (1994)	30
 Low Down Dirty Shame, A (1994)	102
 Boys Life (1995)	97
 Colonel Chabert, Le (1994)	20
 Faster Pussycat! Kill! Kill! (1965)	59
-Jason's Lyric (1994)	40
+Jason's Lyric (1994)	1000
 Secret Adventures of Tom Thumb, The (1993)	25
 Street Fighter (1994)	105
 Coldblooded (1995)	18
@@ -436,7 +436,7 @@ Cowboy Way, The (1994)	152
 Dangerous Game (1993)	2
 Dave (1993)	948
 Dazed and Confused (1993)	643
-Demolition Man (1993)	640
+Demolition Man (1993)	6100
 Endless Summer 2, The (1994)	31
 Even Cowgirls Get the Blues (1993)	81
 Fatal Instinct (1993)	100
@@ -630,7 +630,7 @@ Denise Calls Up (1995)	20
 Theodore Rex (1995)	3
 Family Thing, A (1996)	77
 Frisk (1995)	0
-Sgt. Bilko (1996)	140
+Sgt. Bilko (1996)	1100
 Jack and Sarah (1995)	19
 Girl 6 (1996)	78
 Diabolique (1996)	71
@@ -722,7 +722,7 @@ Institute Benjamenta, or This Dream People Call Human Life (1995)	3
 Low Life, The (1994)	1
 Heaven's Prisoners (1996)	47
 Original Gangstas (1996)	6
-Rock, The (1996)	1340
+Rock, The (1996)	1310
 Getting Away With Murder (1996)	3
 Cemetery Man (Dellamorte Dellamore) (1994)	101
 Twister (1996)	1110
@@ -912,7 +912,7 @@ Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)	470
 Citizen Kane (1941)	1116
 2001: A Space Odyssey (1968)	1716
 Golden Earrings (1947)	12
-All About Eve (1950)	403
+All About Eve (1950)	1000
 Women, The (1939)	84
 Rebecca (1940)	386
 Foreign Correspondent (1940)	93
@@ -942,7 +942,7 @@ Around the World in 80 Days (1956)	269
 It's a Wonderful Life (1946)	729
 Mr. Smith Goes to Washington (1939)	383
 Bringing Up Baby (1938)	413
-Penny Serenade (1941)	40
+Penny Serenade (1941)	1000
 Scarlet Letter, The (1926)	37
 Lady of Burlesque (1943)	13
 Of Human Bondage (1934)	58
@@ -973,7 +973,7 @@ Madagascar Skin (1995)	0
 Pompatus of Love, The (1996)	33
 Small Wonders (1996)	4
 Fly Away Home (1996)	232
-Bliss (1997)	40
+Bliss (1997)	1000
 Grace of My Heart (1996)	69
 Schlafes Bruder (Brother of Sleep) (1995)	1
 Maximum Risk (1996)	54
@@ -1085,7 +1085,7 @@ Christmas Carol, A (1938)	194
 Days of Thunder (1990)	420
 Top Gun (1986)	1010
 American Strays (1996)	4
-Rebel Without a Cause (1955)	402
+Rebel Without a Cause (1955)	1002
 Streetcar Named Desire, A (1951)	483
 Children of the Corn IV: The Gathering (1996)	42
 Leopard Son, The (1996)	0
@@ -1106,7 +1106,7 @@ People vs. Larry Flynt, The (1996)	456
 Glory Daze (1996)	13
 Plutonium Circus (1995)	0
 Perfect Candidate, A (1996)	33
-On Golden Pond (1981)	405
+On Golden Pond (1981)	1005
 Return of the Pink Panther, The (1974)	385
 Drop Dead Fred (1991)	317
 Abyss, The (1989)	1715
@@ -1117,7 +1117,7 @@ Jean de Florette (1986)	216
 Manon of the Spring (Manon des sources) (1986)	220
 Talking About Sex (1994)	2
 Johnny 100 Pesos (1993)	2
-Private Benjamin (1980)	407
+Private Benjamin (1980)	1007
 Monty Python and the Holy Grail (1974)	1599
 Hustler White (1996)	0
 Dadetown (1995)	7
@@ -1261,7 +1261,7 @@ Night on Earth (1991)	194
 Raise the Red Lantern (1991)	277
 Great Dictator, The (1940)	216
 Fantasia (1940)	943
-High Noon (1952)	5403
+High Noon (1952)	8403
 Big Sleep, The (1946)	541
 Heathers (1989)	803
 Somewhere in Time (1980)	285
