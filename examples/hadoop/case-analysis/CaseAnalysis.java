@@ -71,7 +71,7 @@ public class CaseAnalysis
 			System.exit(2);
 		}
 
-		Job job = new Job(conf, "case analysis");
+		Job job = Job.getInstance(conf, "case analysis");
 		job.setJarByClass(CaseAnalysis.class);
 
 		job.setMapperClass(Map.class);
