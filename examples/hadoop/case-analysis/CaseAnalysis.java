@@ -67,7 +67,7 @@ public class CaseAnalysis
 		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
 		if (otherArgs.length != 2) {
-			System.err.println("Usage: hadoop jar caseanalysis.jar <in> <out>");
+			System.err.println("Usage: hadoop jar <jar file> <input folder> <output folder>");
 			System.exit(2);
 		}
 

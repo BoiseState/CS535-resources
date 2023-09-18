@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
 
 /**
  * Word count example for MapReduce.
@@ -51,6 +52,12 @@ public class WordCount {
 
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
+		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+		if (otherArgs.length != 2) {
+			System.err.println("Usage: hadoop jar wc.jar <input folder> <output folder>");
+			System.exit(1);
+		}
+		
 		Job job = Job.getInstance(conf, "word count");
 		//job.setNumReduceTasks(8);
 
