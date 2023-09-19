@@ -15,30 +15,7 @@ fi
 cd ${HADOOP_HOME}
 
 
-# Check to see if any nodes are allocated by the user currently
-# and that only one job is running
-status=`qstat -1n | grep ${USER:0:8} | awk '{print $10}'`
-count=`qstat -1n | grep ${USER:0:8} | awk '{print $10}'| wc -l`
-if test "$count" == "0" 
-then
-	echo "Please first reserve nodes via pbsget in a separate window!!!"
-	exit 1
-fi
-if test "$count" != "1" 
-then
-	echo "Only one job can be running on the cluster to be able to run Hadoop!"
-	exit 1
-fi
-if test "$status" != "R" 
-then
-	echo "Please first reserve nodes via pbsget in a separate window!!!"
-	exit 1
-fi
-
 # check to see that the etc/hadoop/workers  matches the nodes allocated to the user
-cp etc/hadoop/workers etc/hadoop/workers.orig
-qstat -1n | grep ${USER:0:8} | awk '{print $NF}' | awk -F+ '{for (i=1; i<=NF; i++) printf("%s\n", substr($i, 0, 6));}' > etc/hadoop/workers
-
 /bin/rm -fr logs pids
 mkdir {logs,pids}
 

@@ -15,7 +15,9 @@ then
 	stop-dfs.sh
 	/bin/rm -fr logs pids
 	echo
-	echo "Removing hadoop filesystem directories"
+	echo "Removing hadoop filesystem directories!"
+	echo -n "!!!!!!!!!!! Are you sure, once again (y/n): "
+	read response
 	pdsh -w - < etc/hadoop/workers  /bin/rm -fr /tmp/hadoop-`whoami`*
 	rm -fr /tmp/hadoop-`whoami`*
 	echo
