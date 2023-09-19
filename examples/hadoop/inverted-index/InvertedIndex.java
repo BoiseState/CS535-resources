@@ -70,6 +70,7 @@ public class InvertedIndex
 		job.setJarByClass(InvertedIndex.class);
 		job.setMapperClass(InvertedIndexMapper.class);
 		job.setReducerClass(InvertedIndexReducer.class);
+		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
 

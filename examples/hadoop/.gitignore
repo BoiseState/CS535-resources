@@ -6,3 +6,7 @@ word-count-streaming/java/output-java/
 word-count-streaming/output-wc/
 word-count-streaming/python/output-python/
 word-count/output/
+case-analysis/output1/
+inverted-index/output-index/
+top-n-movies-v1/movies-output-v1/
+top-n-movies-v2/movies-output-v2/

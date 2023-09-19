@@ -68,7 +68,7 @@ public class CaseAnalysis
 
 		if (otherArgs.length != 2) {
 			System.err.println("Usage: hadoop jar <jar file> <input folder> <output folder>");
-			System.exit(2);
+			System.exit(1);
 		}
 
 		Job job = Job.getInstance(conf, "case analysis");
@@ -78,8 +78,6 @@ public class CaseAnalysis
 		// we don't want a Combiner here: why?
 		job.setReducerClass(Reduce.class);
 
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(Text.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
