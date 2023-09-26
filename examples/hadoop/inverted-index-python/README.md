@@ -1,7 +1,7 @@
 
-#Building and running Hadoop MapReduce jobs using streaming Python
+# Building and running Hadoop MapReduce jobs using streaming Python
 
-##To test directly, set the environment variable
+## To test directly, set the environment variable
 
 ```
 export map_input_file="test.txt"
@@ -20,7 +20,7 @@ cat test.txt | ./mapper.py | sort | ./reducer.py
 
 and debug any basic Python issues first!
 
-##To run:
+## To run:
 
 Make sure you have HDFS running either in standalone or pseudo-distributed mode before doing
 the following steps. 
@@ -34,8 +34,7 @@ hdfs dfs -get output
 ```
 
 
-Sample output
-=============
+# Sample output
 
 See below for a snippet from the output file (that is very large so we are showing a few sample
 lines).
