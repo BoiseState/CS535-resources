@@ -1,7 +1,7 @@
 
 #Building and running Hadoop MapReduce jobs using streaming Python
 
-# To test directly, set the environment variable
+##To test directly, set the environment variable
 
 ```
 export map_input_file="test.txt"
