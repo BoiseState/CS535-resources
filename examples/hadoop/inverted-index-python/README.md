@@ -39,6 +39,7 @@ hdfs dfs -get output
 See below for a snippet from the output file (that is very large so we are showing a few sample
 lines).
 
+```
 ...
 adversary	Les-Miserables.txt, Les-Miserables.txt, Les-Miserables.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Patrick-Henry.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt
 ...
@@ -48,4 +49,5 @@ wonderland	Through-the-Looking-Glass.txt, Alice-in-Wonderland.txt, Alice-in-Wond
 ...
 yell	Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Les-Miserables.txt
 ...
+```
 
