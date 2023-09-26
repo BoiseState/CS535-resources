@@ -41,13 +41,25 @@ lines).
 
 ```
 ...
-adversary	Les-Miserables.txt, Les-Miserables.txt, Les-Miserables.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Patrick-Henry.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt
+adversary	Les-Miserables.txt, Les-Miserables.txt, Les-Miserables.txt,
+        Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt,
+        Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt,
+        Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Patrick-Henry.txt,
+        Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt, Encyclopaedia.txt,
+        Encyclopaedia.txt
+
 ...
 critically	Gift-of-the-Magi.txt, Encyclopaedia.txt
 ...
-wonderland	Through-the-Looking-Glass.txt, Alice-in-Wonderland.txt, Alice-in-Wonderland.txt, Alice-in-Wonderland.txt, Alice-in-Wonderland.txt
+wonderland	Through-the-Looking-Glass.txt, Alice-in-Wonderland.txt, Alice-in-Wonderland.txt,
+        Alice-in-Wonderland.txt, Alice-in-Wonderland.txt
+
 ...
-yell	Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Les-Miserables.txt
+
+yell	Complete-Shakespeare.txt, Complete-Shakespeare.txt, Complete-Shakespeare.txt,
+        Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt, Tom-Sawyer-Abroad.txt,
+        Les-Miserables.txt
+
 ...
 ```
 
