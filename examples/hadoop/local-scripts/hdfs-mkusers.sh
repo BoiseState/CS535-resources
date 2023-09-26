@@ -1,7 +1,15 @@
 #!/bin/bash
 
-cd /home
-for name in * 
+
+case $# in
+0) echo "Usage: `basename $0` <users file, one per line>"; exit 1;;
+esac
+
+users=$1
+
+echo "hdfs-mkusers: Using list of users from file: " $users
+
+for name in $(cat $users) 
 do 
 	userName=$(echo $name | tr '[:upper:]' '[:lower:]';)
 	echo $userName
@@ -11,14 +19,7 @@ do
 	hdfs dfs -ls -d /user/$userName
 done
 
-echo "setting up staging folders in DFS"
-
-hdfs dfs -mkdir /tmp
-hdfs dfs -chmod 1777 /tmp
-hdfs dfs -mkdir /tmp/hadoop-yarn
-hdfs dfs -chmod 777 /tmp/hadoop-yarn
-hdfs dfs -mkdir /tmp/hadoop-yarn/staging
-hdfs dfs -chmod 777 /tmp/hadoop-yarn/staging
-hdfs dfs -mkdir /tmp/hadoop-yarn/staging/history
-hdfs dfs -chmod 777 /tmp/hadoop-yarn/staging/history
+echo
+echo "Make sure to also run hdfs-setup-tmp.sh to complete multi-user setup!"
+echo
 
