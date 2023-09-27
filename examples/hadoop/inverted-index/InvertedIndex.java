@@ -53,7 +53,6 @@ public class InvertedIndex
 				first = false;
 				toReturn.append(itr.next().toString());
 			}
-
 			context.write(key, new Text(toReturn.toString()));
 		}
 	}
