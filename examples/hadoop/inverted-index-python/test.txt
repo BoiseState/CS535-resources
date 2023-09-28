@@ -1,6 +1,4 @@
-the
-the
-zebra zebra
+the the zebra zebra
 zebra
 and and
 00
