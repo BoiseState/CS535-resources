@@ -3,16 +3,12 @@
 
 ##To build jar file manually:
 
-```
-export PATH=${JAVA_HOME}/bin:${PATH}
-export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
-```
 
 We assume that hadoop is in your PATH.
 ```
 cd src/
 hadoop com.sun.tools.javac.Main TfIdfDriver.java
-jar cf ../tf-idf.jar *.class
+jar cf TfIdfDriver ../tf-idf.jar *.class
 rm -f *.class
 cd ..
 ```
@@ -23,9 +19,9 @@ Create a normal Java project and add the following external jar files (adjusting
 your paths):
 
 ```
-~/hadoop-install/hadoop/hadoop-2.10.1/share/hadoop/common/hadoop-common-2.10.1.jar
-~/hadoop-install/hadoop/hadoop-2.10.1/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.10.1.jar
-~/hadoop-install/hadoop/hadoop-2.10.1/share/hadoop/hdfs/lib/commons-cli-1.2.jar
+~/hadoop-install/hadoop/hadoop-3.3.6/share/hadoop/common/hadoop-common-3.3.6.jar
+~/hadoop-install/hadoop/hadoop-3.3.6/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.6.jar
+~/hadoop-install/hadoop/hadoop-3.3.6/share/hadoop/hdfs/lib/commons-cli-1.2.jar
 ```
 
 Then export project as jar file and you should be set.

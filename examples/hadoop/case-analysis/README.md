@@ -4,12 +4,8 @@
 ##To build jar file manually:
 
 ```
-export JAVA_HOME=/usr/java/default
-export PATH=${JAVA_HOME}/bin:${PATH}
-export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
-
-bin/hadoop com.sun.tools.javac.Main CaseAnalysis.java
-jar cf case-analysis.jar CaseAnalysis*.class
+hadoop com.sun.tools.javac.Main CaseAnalysis.java
+jar cfe case-analysis.jar CaseAnalysis CaseAnalysis*.class
 ```
 
 ##To build jar file in Eclipse:
@@ -33,13 +29,13 @@ the following steps. See Hadoop wiki for more info here:
 
 ```
 hdfs  dfs -put input
-hadoop jar case-analysis.jar CaseAnalysis input output
+hadoop jar case-analysis.jar input output
 hdfs dfs -get output
 ```
 
-If you created the jar file with Eclipse (and set the main class), then run it as follows:
+If you created the jar file with Eclipse (and did not set the main class), then run it as follows:
 
 ```
-hadoop jar case-analysis.jar input output
+hadoop jar case-analysis.jar CaseAnalysis input output
 ```
 

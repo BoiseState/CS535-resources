@@ -38,13 +38,11 @@ On the cscluster00, use the following command
 ```
 hdfs  dfs -put ../input
  
-hadoop jar ~amit/hadoop-install/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar -mapper "python3 mapper.py" -reducer "python3 reducer.py" -input input -output output -file ./mapper.py -file ./reducer.py
+hadoop jar ~amit/hadoop-install/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar -mapper mapper.py -reducer reducer.py -input input -output output -file ./mapper.py -file ./reducer.py
 
 hdfs dfs -get output
 ```
-Note that we need to get the streaming jar file from amit's folder. Also, the cluster has python3
-(and no python command) command, so we need to specify that in the -mapper and -reducer parameters
-as show above.
+Note that we need to get the streaming jar file from amit's folder. 
 
 
 # Sample output

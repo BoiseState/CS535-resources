@@ -3,15 +3,12 @@
 
 ##To build jar file manually:
 
-```
-export PATH=${JAVA_HOME}/bin:${PATH}
-export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
 
 We assume that hadoop is in your PATH.
 
-cd src/
+```
 hadoop com.sun.tools.javac.Main InvertedIndex.java
-jar cf ../inverted-index.jar InvertedIndex*.class
+jar cf InvertedIndex ../inverted-index.jar InvertedIndex*.class
 rm -f *.class
 cd ..
 ```
