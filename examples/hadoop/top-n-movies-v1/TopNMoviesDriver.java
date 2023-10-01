@@ -15,7 +15,6 @@ public class TopNMoviesDriver
 		Configuration conf = new Configuration();
 		String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
-		// if less than two paths, provided will show error
 		if (otherArgs.length < 2) {
 			System.err.println("Error: please provide two folder paths");
 			System.exit(1);

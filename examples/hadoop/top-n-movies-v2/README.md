@@ -1,6 +1,10 @@
 
 #Building and running Hadoop MapReduce jobs
 
+Note that this solution assumes that another pass has already been done so we have movies along with
+their view counts available. This would typically be the first pass of the MapReduce solution that
+starts with view data based on user ids.
+
 ##To build jar file manually:
 
 We assume that hadoop is in your PATH.

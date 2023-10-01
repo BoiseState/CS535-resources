@@ -16,8 +16,6 @@ public class TopNMoviesDriver {
         String[] otherArgs = new GenericOptionsParser(conf, 
                                   args).getRemainingArgs(); 
   
-        // if less than two paths  
-        // provided will show error 
         if (otherArgs.length < 2)  
         { 
             System.err.println("Usage: hadoop jar <jar fle name> <input folder> <output folder>"); 

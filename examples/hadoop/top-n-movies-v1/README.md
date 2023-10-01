@@ -1,4 +1,10 @@
 
+#Top N Movies (with unique view counts)
+
+Note that this solution assumes that another pass has already been done so we have movies along with
+their view counts available. This would typically be the first pass of the MapReduce solution that
+starts with view data based on user ids.
+
 #Building and running Hadoop MapReduce jobs
 
 ##To build jar file manually:
