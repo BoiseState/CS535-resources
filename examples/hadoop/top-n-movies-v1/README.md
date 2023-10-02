@@ -13,7 +13,6 @@ We assume that hadoop is in your PATH.
 ```
 hadoop com.sun.tools.javac.Main TopMoviesMapper.java TopMoviesReducer.java TopNMoviesDriver.java
 jar cfe ../topn-v1.jar TopNMoviesDriver *.class
-rm -f *.class
 ```
 
 ##To build jar file in Eclipse:

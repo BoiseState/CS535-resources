@@ -55,7 +55,7 @@ public class TfIdfDriver
 		FileOutputFormat.setOutputPath(jobTF, new Path(tfOutput));
 		
 
-		Job jobIDF = new Job(conf, "IDF");
+		Job jobIDF = Job.getInstance(conf, "IDF");
 		jobIDF.setJarByClass(InverseDocumentFrequency.class);
 		
 		jobIDF.setMapperClass(InverseDocumentFrequency.InverseDocumentFrequencyMapper.class);
@@ -68,7 +68,7 @@ public class TfIdfDriver
 		FileInputFormat.addInputPath(jobIDF, new Path(tfOutput));
 		FileOutputFormat.setOutputPath(jobIDF, new Path(idfOutput));
 
-		Job jobTfIdf = new Job(conf, "TF-IDF");
+		Job jobTfIdf = Job.getInstance(conf, "TF-IDF");
 		jobTfIdf.setJarByClass(TfIdf.class);
 		
 		jobTfIdf.setMapperClass(TfIdf.TfIdfMapper.class);

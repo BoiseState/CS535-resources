@@ -5,12 +5,10 @@
 
 
 We assume that hadoop is in your PATH.
+
 ```
-cd src/
-hadoop com.sun.tools.javac.Main TfIdfDriver.java
-jar cf TfIdfDriver ../tf-idf.jar *.class
-rm -f *.class
-cd ..
+hadoop com.sun.tools.javac.Main TfIdfDriver.java *.java
+jar cfe tf-idf.jar TfIdfDriver *.class
 ```
 
 ##To build jar file in Eclipse:

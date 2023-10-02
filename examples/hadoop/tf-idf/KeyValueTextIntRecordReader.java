@@ -14,19 +14,22 @@ public class KeyValueTextIntRecordReader extends RecordReader<Text, IntWritable>
 	private IntWritable theValue;
 
 	public KeyValueTextIntRecordReader(InputSplit split, TaskAttemptContext context)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException 
+	{
 		lineRecordReader = new LineRecordReader();
 		this.initialize(split, context);
 	}
 
 
 	public void initialize(InputSplit split, TaskAttemptContext context)
-			throws IOException, InterruptedException {
+			throws IOException, InterruptedException 
+	{
 		lineRecordReader.initialize(split, context);
 	}
 
 	
-	public boolean nextKeyValue() throws IOException, InterruptedException {
+	public boolean nextKeyValue() throws IOException, InterruptedException 
+	{
 		if(lineRecordReader.nextKeyValue() == false)
 			return false;
 		
@@ -41,7 +44,8 @@ public class KeyValueTextIntRecordReader extends RecordReader<Text, IntWritable>
 	}
 
 	
-	public Text getCurrentKey() throws IOException, InterruptedException {
+	public Text getCurrentKey() throws IOException, InterruptedException 
+	{
 		return theKey;
 	}
 

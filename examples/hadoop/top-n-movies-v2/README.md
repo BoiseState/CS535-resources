@@ -10,8 +10,7 @@ starts with view data based on user ids.
 We assume that hadoop is in your PATH.
 ```
 hadoop com.sun.tools.javac.Main TopMoviesMapper.java TopMoviesReducer.java TopNMoviesDriver.java
-jar cfe ../topn-v2.jar TopNMoviesDriver *.class
-rm -f *.class
+jar cfe topn-v2.jar TopNMoviesDriver *.class
 ```
 
 ##To build jar file in Eclipse:

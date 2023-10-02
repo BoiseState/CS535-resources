@@ -8,9 +8,7 @@ We assume that hadoop is in your PATH.
 
 ```
 hadoop com.sun.tools.javac.Main InvertedIndex.java
-jar cf InvertedIndex ../inverted-index.jar InvertedIndex*.class
-rm -f *.class
-cd ..
+jar cfe inverted-index.jar InvertedIndex InvertedIndex*.class
 ```
 
 ##To build jar file in Eclipse:

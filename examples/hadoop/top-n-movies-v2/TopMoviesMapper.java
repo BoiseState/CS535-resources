@@ -18,10 +18,8 @@ public class TopMoviesMapper extends Mapper<Object, Text, Text, LongWritable>
 
 	@Override
 	public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-
-		// input data format => movie_name
-		// no_of_views (tab separated)
-		// we split the input data
+		// We split the input data. We ignore the key
+		// Input data format => movie_name no_of_views (tab separated)
 		String[] tokens = value.toString().split("\t");
 
 		String movie_name = tokens[0];

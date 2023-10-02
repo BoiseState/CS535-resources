@@ -26,7 +26,7 @@ public class TopMoviesReducer extends Reducer<Text, LongWritable, LongWritable, 
 
 		// input data from mapper
 		// key values
-		// movie_name [ count ]
+		// movie [ count ]
 		String name = key.toString();
 		long count = 0;
 
