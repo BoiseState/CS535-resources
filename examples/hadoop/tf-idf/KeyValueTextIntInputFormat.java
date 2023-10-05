@@ -12,7 +12,8 @@ public class KeyValueTextIntInputFormat extends FileInputFormat<Text, IntWritabl
 
 
 	public RecordReader<Text, IntWritable> createRecordReader(InputSplit split,
-		TaskAttemptContext context) throws IOException, InterruptedException {
+		TaskAttemptContext context) throws IOException, InterruptedException 
+	{
 		context.setStatus(split.toString());
 		return new KeyValueTextIntRecordReader((FileSplit) split, context);
 	}
