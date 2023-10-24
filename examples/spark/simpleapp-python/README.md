@@ -15,3 +15,7 @@ Or you can control the logging level from your program. See ../simpleapp/SimpleA
 
 You can also configure Spark defaults by creating a spark/conf/log4j.properties file. This is
 a bit more complex but would make more sense in a production environment.
+
+
+We have also provide a Jupyter notebook to run the same example. See class note son how to use
+PySpark from Juoyter notebook.
