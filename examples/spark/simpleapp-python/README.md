@@ -17,5 +17,5 @@ You can also configure Spark defaults by creating a spark/conf/log4j.properties 
 a bit more complex but would make more sense in a production environment.
 
 
-We have also provide a Jupyter notebook to run the same example. See class note son how to use
-PySpark from Juoyter notebook.
+We have also provided a Jupyter notebook to run the same example. Just open the notebook and follow
+along!
