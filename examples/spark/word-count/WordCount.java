@@ -54,10 +54,11 @@ public final class WordCount
 	//counts.saveAsTextFile("file:///home/amit/output");
 
 
-//	List<Tuple2<String, Integer>> output = counts.collect();
-//	for (Tuple2<?, ?> tuple : output) {
-//	    System.out.println(tuple._1() + ": " + tuple._2());
-//	}
+	//This is how to collect and print the output (for a small data set!)
+	//List<Tuple2<String, Integer>> output = counts.collect();
+	//for (Tuple2<?, ?> tuple : output) {
+	//    System.out.println(tuple._1() + ": " + tuple._2());
+	//}
 	sc.stop();
 	sc.close();
     }
