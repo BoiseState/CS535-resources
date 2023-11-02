@@ -20,16 +20,16 @@ sc = spark.sparkContext
 #%mkdir input
 #%mv *.txt input
 
-#allFiles = sc.textFile('input/*.txt')
+allFiles = sc.textFile('input/*.txt')
 
-allFiles = sc.textFile('hdfs://cscluster00.boisestate.edu:9000/user/amit/input/*.txt')
+#allFiles = sc.textFile('hdfs://cscluster00.boisestate.edu:9000/user/amit/input/*.txt')
 
 counts = allFiles.flatMap(lambda line:line.split(" ")).map(lambda word:(word,1)).reduceByKey(lambda x,y: x+y)
 
 # Save in HDFS
-counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output")
+#counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output")
 
-# counts.saveAsTextFile("results") #saves as a folder
+counts.saveAsTextFile("results") #saves as a folder
 
 
 # We only take the first 10 as the whole list is very long.
