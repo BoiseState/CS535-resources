@@ -24,8 +24,8 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Pattern;
+import java.util.List;
 
 public final class WordCount
 {
@@ -33,15 +33,15 @@ public final class WordCount
 
     public static void main(String[] args) throws Exception {
 
-	if (args.length < 1) {
-	    System.err.println("Usage: JavaWordCount <file or folder>");
+	if (args.length < 2) {
+	    System.err.println("Usage: JavaWordCount <input folder> <output folder>");
 	    System.exit(1);
 	}
 
 	SparkConf conf = new SparkConf().setAppName("WordCount");
 	JavaSparkContext sc = new JavaSparkContext(conf);
 
-	JavaRDD<String> lines = sc.textFile(args[0]);  //hdfs:cscluster00.boisestate.edu:9000/user/amit/input
+	JavaRDD<String> lines = sc.textFile(args[0]);
 	System.out.println("#partitions: " + lines.getNumPartitions());
 	//lines = lines.coalesce(4);
 	//System.out.println("#partitions: " + lines.getNumPartitions());
@@ -50,15 +50,15 @@ public final class WordCount
 	JavaPairRDD<String, Integer> ones = words.mapToPair(s -> new Tuple2<>(s, 1));
 	JavaPairRDD<String, Integer> counts = ones.reduceByKey((i1, i2) -> i1 + i2);
 	// (the, 1) (the, 3) (the, 3) => (the, 7) (and, 1) (and,1) => (and, 2)
-	counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output");
-	//counts.saveAsTextFile("file:///home/amit/output");
-
+	
+	counts.saveAsTextFile(args[1]);
 
 	//This is how to collect and print the output (for a small data set!)
-	//List<Tuple2<String, Integer>> output = counts.collect();
-	//for (Tuple2<?, ?> tuple : output) {
-	//    System.out.println(tuple._1() + ": " + tuple._2());
-	//}
+	List<Tuple2<String, Integer>> output = counts.take(10);
+	for (Tuple2<?, ?> tuple : output) {
+	    System.out.println(tuple._1() + ": " + tuple._2());
+	}
+	
 	sc.stop();
 	sc.close();
     }

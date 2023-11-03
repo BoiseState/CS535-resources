@@ -6,7 +6,13 @@
 
 import findspark
 import pyspark
+import sys
 from pyspark.sql import SparkSession
+
+
+if (len(sys.argv) != 3):
+    print("Usage: wordcount.py <input folder> <output folder>")
+    sys.exit(1)
 
 spark = SparkSession.builder.master('local[*]').appName("Tutorial-1").getOrCreate()
 sc = spark.sparkContext
@@ -20,16 +26,16 @@ sc = spark.sparkContext
 #%mkdir input
 #%mv *.txt input
 
-allFiles = sc.textFile('input/*.txt')
-
 #allFiles = sc.textFile('hdfs://cscluster00.boisestate.edu:9000/user/amit/input/*.txt')
+allFiles = sc.textFile(sys.argv[1])
+
 
 counts = allFiles.flatMap(lambda line:line.split(" ")).map(lambda word:(word,1)).reduceByKey(lambda x,y: x+y)
 
 # Save in HDFS
 #counts.saveAsTextFile("hdfs://cscluster00.boisestate.edu:9000/user/amit/output")
 
-counts.saveAsTextFile("results") #saves as a folder
+counts.saveAsTextFile(sys.argv[2]) 
 
 
 # We only take the first 10 as the whole list is very long.
