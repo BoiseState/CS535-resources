@@ -1,37 +1,40 @@
 
-Build
-=====
+# Run
+
+## Java version
 
 Build the jar file directly in Eclipse (just include all Spark jar files from
-~/spark-install/spark/jars as External jars for the project.
+~/spark-install/spark/jars as External jars for the project).
 
-Run
-===
-
-spark-submit --class "JavaPageRank" --master local[4] pagerank.jar data_file.txt iterations
+spark-submit --class "JavaPageRank" --master local[4] pagerank.jar <pagerank data file>
 
 where local[4] says to use 4 threads on local machine. You can change that to higher or lower
 or replace by * to use as many threads as the number of logical threads on your local system.
 
 For input files on HDFS, make sure Hadoop is up and running. Then use the following 
 
-spark-submit --class "JavaPageRank" --master local[4] pagerank.jar hdfs://localhost:9000/user/amit/data iterations
+spark-submit --class "JavaPageRank" --master local[4] pagerank.jar hdfs://localhost:9000/user/amit/<pagarank data file>
+
+Or replace localhost by cscluster00 on the cluster.
+
+## Python version
+spark-submit --master local[4] pagerank.py <pagerank data file>
+
+where local[4] says to use 4 threads on local machine. You can change that to higher or lower
+or replace by * to use as many threads as the number of logical threads on your local system.
+
+For input files on HDFS, make sure Hadoop is up and running. Then use the following 
+
+spark-submit --master local[4] pagerank.py hdfs://localhost:9000/user/amit/<pagerank data file>
+
+Or replace localhost by cscluster00 on the cluster.
 
 
-Logging
-=======
+# Logging
 
 By default, spark generates a lot of info messages. You can redirect them to a file as follows:
 
-spark-submit --class "JavaPageRank" --master local[4]  pagerank.jar data_file.txt iterations  2> log
+spark-submit --class "JavaPageRank" --master local[4]  pagerank.jar <pagerank data file>  2> log
 
-Or you can control the logging level from your program. Here is the relevant code:
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-. . .
-
-Logger log = LogManager.getRootLogger();
-log.setLevel(Level.WARN);
+Or you can control the logging level from your program. 
 

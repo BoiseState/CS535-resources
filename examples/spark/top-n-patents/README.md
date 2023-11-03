@@ -1,14 +1,12 @@
 
-Build
-=====
+# Run
+
+## Java version
 
 Build the jar file directly in Eclipse (just include all Spark jar files from
-~/spark-install/spark/jars as External jars for the project.
+~/spark-install/spark/jars as External jars for the project).
 
-Run
-===
-
-spark-submit --class "TopNPatents" --master local[4] top-n-patents.jar data_1.txt
+spark-submit --class "TopNPatents" --master local[4] top-n-patents.jar input
 
 where local[4] says to use 4 threads on local machine. You can change that to higher or lower
 or replace by * to use as many threads as the number of logical threads on your local system.
@@ -17,9 +15,24 @@ For input files on HDFS, make sure Hadoop is up and running. Then use the follow
 
 spark-submit --class "TopNPatents" --master local[4] top-n-patents.jar hdfs://localhost:9000/user/amit/input
 
+Or replace localhost by cscluster00 on the cluster.
 
-Logging
-=======
+
+## Python version
+
+spark-submit --master local[4] top-n-patents.py input
+
+where local[4] says to use 4 threads on local machine. You can change that to higher or lower
+or replace by * to use as many threads as the number of logical threads on your local system.
+
+For input files on HDFS, make sure Hadoop is up and running. Then use the following 
+
+spark-submit --master local[4] top-n-patents.py hdfs://localhost:9000/user/amit/input
+
+Or replace localhost by cscluster00 on the cluster.
+
+
+# Logging
 
 By default, spark generates a lot of info messages. You can redirect them to a file as follows:
 
