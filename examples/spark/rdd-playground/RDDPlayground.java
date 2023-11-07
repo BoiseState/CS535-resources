@@ -1,10 +1,6 @@
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -64,11 +60,13 @@ public class RDDPlayground
 
 		System.out.println("Word count top 10: ");
 		List<Tuple2<String, Integer>> output = counts.take(10);
+		
 //		List<Tuple2<String, Integer>> output = counts.takeOrdered(10, new Comparator<Tuple2<String, Integer>>() {
 //			public int compare(Tuple2<String, Integer> t1, Tuple2<String, Integer> t2) {
 //				return -(t1._2 - t2._2); // reverse sorting
 //			}
 //		});
+		
 		for (Tuple2<?, ?> tuple : output) {
 			System.out.println(tuple._1() + ": " + tuple._2());
 		}
