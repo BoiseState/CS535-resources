@@ -15,7 +15,7 @@ sc = spark.sparkContext
 
 rdd1 = sc.wholeTextFiles(sys.argv[1])
 rdd2 = rdd1.flatMap(lambda data: data[1].split())
-rdd3 = rdd2.flatMap(lambda x: [(y, 1) if y.isupper()==True else (y.upper(), 0) for y in x] )
+rdd3 = rdd2.flatMap(lambda x: [(y, 1) if y.isupper()==True else (y.upper(), 0) for y in x])
 rdd4 = rdd3.groupByKey().mapValues(lambda x: sum(x)/len(x)*100)
 
 # Collect rdd4 for diagnostics
