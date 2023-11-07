@@ -2,7 +2,6 @@
 
 # Run
 
-This README deals with running on your local system - modify as needed to run on a cluster.
 
 ## Java version
 
@@ -18,6 +17,7 @@ For input files on HDFS, make sure Hadoop is up and running. Then use the follow
 
 spark-submit --class "CaseAnalysis" --master local[4] case-analysis.jar hdfs://localhost:9000/user/amit/input
 
+Or replace localhost by cscluster00 on the cluster.
 
 ## Python version
 spark-submit --master local[4] case-analysis.py input
@@ -28,6 +28,8 @@ or replace by * to use as many threads as the number of logical threads on your 
 For input files on HDFS, make sure Hadoop is up and running. Then use the following 
 
 spark-submit --master local[4] case-analysis.py hdfs://localhost:9000/user/amit/input
+
+Or replace localhost by cscluster00 on the cluster.
 
 
 # Logging
