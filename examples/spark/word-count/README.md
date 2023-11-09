@@ -34,7 +34,7 @@ spark-submit --master spark://cscluster00.boisestate.edu:7077 wordcount.py input
 
 For a Spark cluster that is up and running along with a Hadoop cluster, use:
 
-spark-submit --master spark://cscluster00.boisestate.edu:7077 wordcount.py hdfs://cscluster00:9000/user/amit/input hdfs://cscluster00:900/user/amit/output  
+spark-submit --master spark://cscluster00:7077 wordcount.py hdfs://cscluster00:9000/user/amit/input hdfs://cscluster00:9000/user/amit/output  
 
 Replace amit with your user name on the cluster.
 
