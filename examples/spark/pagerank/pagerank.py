@@ -23,7 +23,7 @@ rdd4 = rdd3.map(lambda x: (x[0], 1.0))
 
 max_iter = 12
 for i in range(5):
-    update_cont = rdd3.join(rdd4).flatMap(lambda x:[(b, x[1][1]/len(x[1][0])) for b in x[1][0]])    .groupByKey().mapValues(sum)
+    update_cont = rdd3.join(rdd4).flatMap(lambda x:[(b, x[1][1]/len(x[1][0])) for b in x[1][0]]).groupByKey().mapValues(sum)
     rdd4 = update_cont
 
 result = rdd4.collect()
