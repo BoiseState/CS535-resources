@@ -43,107 +43,111 @@ import org.apache.spark.sql.SparkSession;
  */
 public final class JavaPageRankVerbose
 {
-    private static final Pattern SPACES = Pattern.compile("\\s+");
+	private static final Pattern SPACES = Pattern.compile("\\s+");
 
-    static void showWarning() {
-	String warning = "WARN: This is a naive implementation of PageRank " + "and is given as an example! \n"
-	        + "Please use the PageRank implementation found in "
-	        + "org.apache.spark.graphx.lib.PageRank for more conventional use.";
-	System.err.println(warning);
-    }
-
-    @SuppressWarnings("serial")
-    private static class Sum implements Function2<Double, Double, Double>
-    {
-	@Override
-	public Double call(Double a, Double b) {
-	    return a + b;
-	}
-    }
-
-    public static void main(String[] args) throws Exception {
-	if (args.length < 2) {
-	    System.err.println("Usage: JavaPageRank <file> <number_of_iterations>");
-	    System.exit(1);
+	static void showWarning()
+	{
+		String warning = "WARN: This is a naive implementation of PageRank " + "and is given as an example! \n"
+		        + "Please use the PageRank implementation found in "
+		        + "org.apache.spark.graphx.lib.PageRank for more conventional use.";
+		System.err.println(warning);
 	}
 
-	showWarning();
-	int iterations = Integer.parseInt(args[1]);
-
-	SparkConf conf = new SparkConf().setAppName("PageRankVerbose").setMaster("local[4]");
-	JavaSparkContext sc = new JavaSparkContext(conf);
-
-	// Loads in input file. It should be in format of:
-	// URL neighbor URL
-	// URL neighbor URL
-	// URL neighbor URL
-	// ...
-	JavaRDD<String> lines = sc.textFile(args[0]);
-
-	// Loads all URLs from input file and initialize their neighbors.
-	JavaPairRDD<String, Iterable<String>> links = lines.mapToPair(s -> {
-	    String[] parts = SPACES.split(s);
-	    return new Tuple2<>(parts[0], parts[1]);
-	}).distinct().groupByKey().cache();
-
-	// Show the output from previous step
-	List<Tuple2<String, Iterable<String>>> linksOutput = links.collect();
-	System.out.println();
-	for (Tuple2<?, ?> tuple : linksOutput) {
-	    System.out.println(tuple._1() + " has neighbors: " + tuple._2());
-	}
-	System.out.println();
-
-	// Loads all URLs with other URL(s) link to from input file and initialize ranks
-	// of them to one.
-	JavaPairRDD<String, Double> ranks = links.mapValues(rs -> 1.0);
-
-	// Display initial ranks
-	List<Tuple2<String, Double>> ranksOutput = ranks.collect();
-	System.out.println();
-	for (Tuple2<?, ?> tuple : ranksOutput) {
-	    System.out.println(tuple._1() + " has initial rank: " + tuple._2());
-	}
-	System.out.println();
-
-	// Calculates and updates URL ranks continuously using PageRank algorithm.
-	for (int current = 0; current < iterations; current++) {
-	    JavaPairRDD<String, Tuple2<Iterable<String>, Double>> test1 = links.join(ranks);
-	    List<Tuple2<String, Tuple2<Iterable<String>, Double>>> out1 = test1.collect();
-	    System.out.println();
-	    for (Tuple2<?, ?> tuple : out1) {
-		System.out.println(tuple._1() + " has joined value: " + tuple._2());
-	    }
-	    System.out.println();
-
-	    // Calculates URL contributions to the rank of other URLs.
-	    JavaPairRDD<String, Double> contribs = links.join(ranks).values().flatMapToPair(s -> {
-		int urlCount = Iterables.size(s._1());
-		List<Tuple2<String, Double>> results = new ArrayList<>();
-		for (String n : s._1) {
-		    results.add(new Tuple2<>(n, s._2() / urlCount));
+	@SuppressWarnings("serial")
+	private static class Sum implements Function2<Double, Double, Double>
+	{
+		@Override
+		public Double call(Double a, Double b)
+		{
+			return a + b;
 		}
-		return results.iterator();
-	    });
-
-	    List<Tuple2<String, Double>> contribsOutput = contribs.collect();
-	    System.out.println();
-	    for (Tuple2<?, ?> tuple : contribsOutput) {
-		System.out.println(tuple._1() + " has new rank in iteration " + current + ": " + tuple._2());
-	    }
-	    System.out.println();
-
-	    // Re-calculates URL ranks based on neighbor contributions.
-	    ranks = contribs.reduceByKey(new Sum()).mapValues(sum -> 0.15 + sum * 0.85);
 	}
 
-	// Collects all URL ranks and dump them to console.
-	List<Tuple2<String, Double>> output = ranks.collect();
-	for (Tuple2<?, ?> tuple : output) {
-	    System.out.println(tuple._1() + " has rank: " + tuple._2() + ".");
-	}
+	public static void main(String[] args) throws Exception
+	{
+		if (args.length < 2) {
+			System.err.println("Usage: JavaPageRank <file> <number_of_iterations>");
+			System.exit(1);
+		}
 
-	sc.stop();
-	sc.close();
-    }
+		showWarning();
+		int iterations = Integer.parseInt(args[1]);
+
+		SparkConf conf = new SparkConf().setAppName("PageRankVerbose").setMaster("local[4]");
+		JavaSparkContext sc = new JavaSparkContext(conf);
+
+		// Loads in input file. It should be in format of:
+		// URL neighbor URL
+		// URL neighbor URL
+		// URL neighbor URL
+		// ...
+		JavaRDD<String> lines = sc.textFile(args[0]);
+
+		// Loads all URLs from input file and initialize their neighbors.
+		JavaPairRDD<String, Iterable<String>> links = lines.mapToPair(s -> {
+			String[] parts = SPACES.split(s);
+			return new Tuple2<>(parts[0], parts[1]);
+		}).distinct().groupByKey().cache();
+
+		// Show the output from previous step
+		List<Tuple2<String, Iterable<String>>> linksOutput = links.collect();
+		System.out.println();
+		for (Tuple2<?, ?> tuple : linksOutput) {
+			System.out.println(tuple._1() + " has neighbors: " + tuple._2());
+		}
+		System.out.println();
+
+		// Loads all URLs with other URL(s) links to from input file and initialize
+		// ranks
+		// of them to one.
+		JavaPairRDD<String, Double> ranks = links.mapValues(rs -> 1.0);
+
+		// Display initial ranks
+		List<Tuple2<String, Double>> ranksOutput = ranks.collect();
+		System.out.println();
+		for (Tuple2<?, ?> tuple : ranksOutput) {
+			System.out.println(tuple._1() + " has initial rank: " + tuple._2());
+		}
+		System.out.println();
+
+		// Calculates and updates URL ranks continuously using PageRank algorithm.
+		for (int current = 0; current < iterations; current++) {
+			JavaPairRDD<String, Tuple2<Iterable<String>, Double>> test1 = links.join(ranks);
+			List<Tuple2<String, Tuple2<Iterable<String>, Double>>> out1 = test1.collect();
+			System.out.println();
+			for (Tuple2<?, ?> tuple : out1) {
+				System.out.println(tuple._1() + " has joined value: " + tuple._2());
+			}
+			System.out.println();
+
+			// Calculates URL contributions to the rank of other URLs.
+			JavaPairRDD<String, Double> contribs = links.join(ranks).values().flatMapToPair(s -> {
+				int urlCount = Iterables.size(s._1());
+				List<Tuple2<String, Double>> results = new ArrayList<>();
+				for (String n : s._1) {
+					results.add(new Tuple2<>(n, s._2() / urlCount));
+				}
+				return results.iterator();
+			});
+
+			List<Tuple2<String, Double>> contribsOutput = contribs.collect();
+			System.out.println();
+			for (Tuple2<?, ?> tuple : contribsOutput) {
+				System.out.println(tuple._1() + " has new rank in iteration " + current + ": " + tuple._2());
+			}
+			System.out.println();
+
+			// Re-calculates URL ranks based on neighbor contributions.
+			ranks = contribs.reduceByKey(new Sum()).mapValues(sum -> 0.15 + sum * 0.85);
+		}
+
+		// Collects all URL ranks and dump them to console.
+		List<Tuple2<String, Double>> output = ranks.collect();
+		for (Tuple2<?, ?> tuple : output) {
+			System.out.println(tuple._1() + " has rank: " + tuple._2() + ".");
+		}
+
+		sc.stop();
+		sc.close();
+	}
 }

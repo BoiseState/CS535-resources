@@ -22,7 +22,7 @@ public class RDDPlayground
 		JavaRDD<Integer> rdd2 = rdd1.map(x -> x + 1);
 		printRDD("--> distData1 = distData.map(x -> x + 1);", rdd2);
 
-		JavaRDD rdd3 = rdd1.filter(x -> x % 2 == 0);
+		JavaRDD<Integer> rdd3 = rdd1.filter(x -> x % 2 == 0);
 		printRDD("--> distData1 = distData.filter(x -> x % 2 == 0);", rdd3);
 
 		JavaRDD<Integer> rdd4 = sc.parallelize(Arrays.asList(1, 2, 2, 3, 3, 3, 4));
