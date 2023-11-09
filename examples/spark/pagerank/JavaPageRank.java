@@ -58,7 +58,7 @@ public final class JavaPageRank {
   }
 
   @SuppressWarnings("serial")
-private static class Sum implements Function2<Double, Double, Double> {
+  private static class Sum implements Function2<Double, Double, Double> {
     @Override
     public Double call(Double a, Double b) {
       return a + b;
