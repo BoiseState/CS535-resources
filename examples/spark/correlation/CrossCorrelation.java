@@ -44,7 +44,7 @@ public final class CrossCorrelation
 
     public static void main(String[] args) throws Exception {
 
-        SparkConf conf = new SparkConf().setAppName("CrossCorrelation");
+        SparkConf conf = new SparkConf().setAppName("CrossCorrelation").setMaster("local[4]");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> lines = sc.textFile(args[0]);
