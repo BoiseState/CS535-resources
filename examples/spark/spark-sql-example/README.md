@@ -21,13 +21,6 @@ By default, spark generates a lot of info messages. You can redirect them to a f
 
 spark-submit --class "JavaSparkSQLExample1" --master local[4]  java-sql-example-1.jar  2> log
 
-Or you can control the logging level from your program. Here is the relevant code:
+Or you can control the logging level from your program. 
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-. . .
-
-Logger log = LogManager.getRootLogger();
-log.setLevel(Level.WARN);
 
