@@ -16,6 +16,11 @@ Then startup the streaming listener in a separate terminal as follows:
 
 spark-submit --master local[4] spark-streaming-wordcount.jar localhost 9999 2> log
 
+or
+
+
+spark-submit --master local[4] spark-streaming-wordcount.py 2> log
+
 where local[4] says to use 4 threads on local machine. You can change that to higher or lower
 or replace by * to use as many threads as the number of logical threads on your local system.
 
