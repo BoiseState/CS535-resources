@@ -52,7 +52,7 @@ public final class JavaStructuredNetworkWordCount
 	//It runs every second, by default
 	//StreamingQuery query = wordCounts.writeStream().outputMode("complete")
 	//	                       .format("console").start();
-	//Trigger the query every 5 seconds
+	//Trigger the query every 3 seconds
 	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
 		               .format("console")
 		               .trigger(Trigger.ProcessingTime(3000))
