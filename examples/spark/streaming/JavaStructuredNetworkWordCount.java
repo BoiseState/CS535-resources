@@ -8,6 +8,7 @@ import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.streaming.StreamingQuery;
+import org.apache.spark.sql.streaming.Trigger;
 
 /**
  * Counts words in UTF8 encoded, '\n' delimited text received from the network
@@ -21,15 +22,15 @@ import org.apache.spark.sql.streaming.StreamingQuery;
  */
 public final class JavaStructuredNetworkWordCount
 {
-    private static final Pattern SPACE = Pattern.compile(" ");
-
     public static void main(String[] args) throws Exception {
 	if (args.length < 2) {
 	    System.err.println("Usage: JavaStructuredNetworkWordCount <hostname> <port>");
 	    System.exit(1);
 	}
 
-	SparkSession spark = SparkSession.builder().appName("JavaStructuredNetworkWordCount").getOrCreate();
+	SparkSession spark = SparkSession.builder()
+			.appName("JavaStructuredNetworkWordCount")
+			.getOrCreate();
 
 	// Create DataFrame representing the stream of input lines 
 	// from the connection to localhost:9999
@@ -41,20 +42,21 @@ public final class JavaStructuredNetworkWordCount
 	
 	// Split the lines into words
 	Dataset<String> words = lines.as(Encoders.STRING()).flatMap(
-	        (FlatMapFunction<String, String>) x -> Arrays.asList(x.split(" ")).iterator(), Encoders.STRING());
+	        (FlatMapFunction<String, String>) x -> Arrays.asList(x.split(" "))
+	        .iterator(), Encoders.STRING());
 
 	// Generate running word count
 	Dataset<Row> wordCounts = words.groupBy("value").count();
 
 	//Start running the query that prints the running counts to the console
 	//It runs every second, by default
-	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
-		                       .format("console").start();
+	//StreamingQuery query = wordCounts.writeStream().outputMode("complete")
+	//	                       .format("console").start();
 	//Trigger the query every 5 seconds
-//	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
-//		               .format("console")
-//		               .trigger(Trigger.ProcessingTime(5000))
-//		               .start();
+	StreamingQuery query = wordCounts.writeStream().outputMode("complete")
+		               .format("console")
+		               .trigger(Trigger.ProcessingTime(3000))
+		               .start();
 
 // Requires watermark 
 //	StreamingQuery query = wordCounts.writeStream().outputMode("append")
