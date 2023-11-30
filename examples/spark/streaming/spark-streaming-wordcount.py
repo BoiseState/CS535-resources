@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# Structured streaming wordcount example
+
 
 import findspark
 import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-
 spark = SparkSession.builder.master('local[*]').appName("Tutorial-1").getOrCreate()
 sc = spark.sparkContext
-
 
 lines = (spark
         .readStream.format("socket")
