@@ -1,8 +1,7 @@
 
-cd /home
 hdfs dfs -mkdir /user
 
-for name in * 
+for name in $(cat users.txt) 
 do 
         userName=$(echo $name | tr '[:upper:]' '[:lower:]';)
         echo $userName
